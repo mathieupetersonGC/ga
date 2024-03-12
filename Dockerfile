@@ -1,6 +1,6 @@
 FROM helpsystems/goanywhere-mft:latest
 
-USER root
+#USER root
 
 RUN rm -rf /etc/yum.repos.d/linuxrepos.repo
 
