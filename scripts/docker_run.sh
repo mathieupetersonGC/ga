@@ -1,4 +1,4 @@
-docker run --detach \
+docker run --name myga --detach \
 --publish 9000:8000 \
 --publish 9001:8001 \
 --publish 9005:8005 \
