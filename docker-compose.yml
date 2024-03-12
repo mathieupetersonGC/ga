@@ -21,9 +21,16 @@ services:
       - "32201-32300:32201-32300"
     volumes:
       - $HOME/docker/volumes/gamft.lic:/opt/HelpSystems/GoAnywhere/gamft.lic
-      - $HOME/docker/volumes/userdata:/opt/HelpSystems/GoAnywhere/userdata/
-      - $HOME/docker/volumes/upgraderlogs:/opt/HelpSystems/GoAnywhere/upgrader/logs/
-      - $HOME/docker/volumes/configdir:/etc/HelpSystems/GoAnywhere/config/
-      - $HOME/docker/volumes/tomcatserver:/etc/HelpSystems/GoAnywhere/tomcat/conf/
-      - $HOME/docker/volumes/tomcatlogsdir:/opt/HelpSystems/GoAnywhere/tomcat/logs/
-      - $HOME/docker/volumes/ghttpsrootcustomdir:/opt/HelpSystems/GoAnywhere/ghttpsroot/custom/
+      - userdata:/opt/HelpSystems/GoAnywhere/userdata/
+      - upgraderlogs:/opt/HelpSystems/GoAnywhere/upgrader/logs/
+      - configdir:/etc/HelpSystems/GoAnywhere/config/
+      - tomcatserver:/etc/HelpSystems/GoAnywhere/tomcat/conf/
+      - tomcatlogsdir:/opt/HelpSystems/GoAnywhere/tomcat/logs/
+      - ghttpsrootcustomdir:/opt/HelpSystems/GoAnywhere/ghttpsroot/custom/
+volumes:
+userdata:
+upgraderlogs:
+configdir:
+tomcatserver:
+tomcatlogsdir:
+ghttpsrootcustomdir:
