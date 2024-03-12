@@ -4,4 +4,4 @@ USER root
 
 RUN rm -rf /etc/yum.repos.d/linuxrepos.repo
 
-RUN yum update && yum -y install nettools && yum -y clean all && rm -rf /var/cache
+RUN yum update && yum -y install procps && yum -y clean all && rm -rf /var/cache
