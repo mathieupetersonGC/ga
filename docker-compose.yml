@@ -28,9 +28,9 @@ services:
       - tomcatlogsdir:/opt/HelpSystems/GoAnywhere/tomcat/logs/
       - ghttpsrootcustomdir:/opt/HelpSystems/GoAnywhere/ghttpsroot/custom/
 volumes:
-userdata:
-upgraderlogs:
-configdir:
-tomcatserver:
-tomcatlogsdir:
-ghttpsrootcustomdir:
+  userdata:
+  upgraderlogs:
+  configdir:
+  tomcatserver:
+  tomcatlogsdir:
+  ghttpsrootcustomdir:
