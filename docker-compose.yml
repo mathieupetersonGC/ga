@@ -20,10 +20,10 @@ services:
       # Port range used for passive FTPS transfers, must match range set in service configuration to work properly.
       - "32201-32300:32201-32300"
     volumes:
-      - /home/azureuser/volumes/gamft.lic:/opt/HelpSystems/GoAnywhere/gamft.lic
-      - /home/azureuser/volumes/userdata:/opt/HelpSystems/GoAnywhere/userdata/
-      - /home/azureuser/volumes/upgraderlogs:/opt/HelpSystems/GoAnywhere/upgrader/logs/
-      - /home/azureuser/volumes/configdir:/etc/HelpSystems/GoAnywhere/config/
-      - /home/azureuser/volumes/tomcatserver:/etc/HelpSystems/GoAnywhere/tomcat/conf/
-      - /home/azureuser/volumes/tomcatlogsdir:/opt/HelpSystems/GoAnywhere/tomcat/logs/
-      - /home/azureuser/volumes/ghttpsrootcustomdir:/opt/HelpSystems/GoAnywhere/ghttpsroot/custom/
+      - $HOME/docker/volumes/gamft.lic:/opt/HelpSystems/GoAnywhere/gamft.lic
+      - $HOME/docker/volumes/userdata:/opt/HelpSystems/GoAnywhere/userdata/
+      - $HOME/docker/volumes/upgraderlogs:/opt/HelpSystems/GoAnywhere/upgrader/logs/
+      - $HOME/docker/volumes/configdir:/etc/HelpSystems/GoAnywhere/config/
+      - $HOME/docker/volumes/tomcatserver:/etc/HelpSystems/GoAnywhere/tomcat/conf/
+      - $HOME/docker/volumes/tomcatlogsdir:/opt/HelpSystems/GoAnywhere/tomcat/logs/
+      - $HOME/docker/volumes/ghttpsrootcustomdir:/opt/HelpSystems/GoAnywhere/ghttpsroot/custom/
