@@ -21,7 +21,7 @@ services:
       - "32201-32300:32201-32300"
     volumes:
       - $HOME/volumes/gamft.lic:/opt/HelpSystems/GoAnywhere/gamft.lic
-      - $HOME/volumes/userdata:/opt/HelpSystems/GoAnywhere/userdata/
+      - userdata:/opt/HelpSystems/GoAnywhere/userdata/
       - $HOME/volumes/upgraderlogs:/opt/HelpSystems/GoAnywhere/upgrader/logs/
       - $HOME/volumes/configdir:/etc/HelpSystems/GoAnywhere/config/
       - $HOME/volumes/tomcatserver:/etc/HelpSystems/GoAnywhere/tomcat/conf/
