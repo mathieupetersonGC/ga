@@ -20,12 +20,12 @@ services:
       # Port range used for passive FTPS transfers, must match range set in service configuration to work properly.
       - "32201-32300:32201-32300"
     volumes:
-      - $HOME/volumes/gamft.lic:/opt/HelpSystems/GoAnywhere/gamft.lic
+      - ${HOME}/volumes/gamft.lic:/opt/HelpSystems/GoAnywhere/gamft.lic
       - userdata:/opt/HelpSystems/GoAnywhere/userdata/
-      - $HOME/volumes/upgraderlogs:/opt/HelpSystems/GoAnywhere/upgrader/logs/
-      - $HOME/volumes/configdir:/etc/HelpSystems/GoAnywhere/config/
-      - $HOME/volumes/tomcatserver:/etc/HelpSystems/GoAnywhere/tomcat/conf/
-      - $HOME/volumes/tomcatlogsdir:/opt/HelpSystems/GoAnywhere/tomcat/logs/
-      - $HOME/volumes/ghttpsrootcustomdir:/opt/HelpSystems/GoAnywhere/ghttpsroot/custom/
+      - ${HOME}/volumes/upgraderlogs:/opt/HelpSystems/GoAnywhere/upgrader/logs/
+      - ${HOME}/volumes/configdir:/etc/HelpSystems/GoAnywhere/config/
+      - ${HOME}/volumes/tomcatserver:/etc/HelpSystems/GoAnywhere/tomcat/conf/
+      - ${HOME}/volumes/tomcatlogsdir:/opt/HelpSystems/GoAnywhere/tomcat/logs/
+      - ${HOME}/volumes/ghttpsrootcustomdir:/opt/HelpSystems/GoAnywhere/ghttpsroot/custom/
 volumes:
   userdata:
