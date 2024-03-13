@@ -27,3 +27,5 @@ services:
       - $HOME/volumes/tomcatserver:/etc/HelpSystems/GoAnywhere/tomcat/conf/
       - $HOME/volumes/tomcatlogsdir:/opt/HelpSystems/GoAnywhere/tomcat/logs/
       - $HOME/volumes/ghttpsrootcustomdir:/opt/HelpSystems/GoAnywhere/ghttpsroot/custom/
+volumes:
+  userdata:
