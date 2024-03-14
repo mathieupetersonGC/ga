@@ -5,8 +5,8 @@ services:
     container_name: goanywhere-mft-1
     restart: unless-stopped
     networks:
-      - ga_network
-    mac_address: 02:42:c0:a8:80:80
+      default:
+        mac_address: 02:42:c0:a8:80:80
     ports:
       # Standard ports used by GoAnywhere MFT
       - "9000-9001:8000-8001"
@@ -33,7 +33,4 @@ services:
 volumes:
   userdata:
   configdir:
-  tomcatserver:
-networks:
-  ga_network:
-    
+  tomcatserver:    
