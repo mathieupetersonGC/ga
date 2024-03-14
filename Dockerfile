@@ -2,9 +2,9 @@ FROM helpsystems/goanywhere-mft:latest
 
 COPY /lib/* /opt/HelpSystems/GoAnywhere/lib/
 
-COPY /scripts/entrypoint.sh /usr/bin/entrypoint.sh
-
 USER root
+
+COPY /scripts/entrypoint.sh /usr/bin/
 
 RUN rm -rf /etc/yum.repos.d/linuxrepos.repo
 
