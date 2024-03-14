@@ -6,6 +6,7 @@ services:
     restart: unless-stopped
     networks:
       - ga_network
+    mac_address: 02:42:c0:a8:80:80
     ports:
       # Standard ports used by GoAnywhere MFT
       - "9000-9001:8000-8001"
@@ -35,4 +36,4 @@ volumes:
   tomcatserver:
 networks:
   ga_network:
-    mac_address: 02:42:c0:a8:80:80
+    
