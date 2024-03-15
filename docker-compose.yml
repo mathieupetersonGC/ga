@@ -33,4 +33,4 @@ services:
 volumes:
   userdata:
   configdir:
-  tomcatserver:    
+  tomcatserver:
