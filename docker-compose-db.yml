@@ -6,8 +6,8 @@ services:
     container_name: mysqldb
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: goanywhere
-      MYSQL_USER: user
+      MYSQL_DATABASE: GADATA
+      MYSQL_USER: GADATA
       MYSQL_PASSWORD: password
     ports:
       - "3306:3306"
