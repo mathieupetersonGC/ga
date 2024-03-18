@@ -1,6 +1,6 @@
 FROM helpsystems/goanywhere-mft:latest
 
-COPY /lib/* /opt/HelpSystems/GoAnywhere/lib/
+#COPY /lib/* /opt/HelpSystems/GoAnywhere/lib/
 
 USER root
 
