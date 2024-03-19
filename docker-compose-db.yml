@@ -2,7 +2,7 @@ version: '3'
 services:
   mariadb:
     image: mariadb:latest
-    #restart: always
+    restart: always
     networks:
       - default
     container_name: mariadb
@@ -17,7 +17,7 @@ services:
       - mysql-data:/var/lib/mysql
   mft:
     image: myga:latest
-    #restart: unless-stopped
+    restart: unless-stopped
     container_name: goanywhere-mft-1
     ports:
       # Standard ports used by GoAnywhere MFT
