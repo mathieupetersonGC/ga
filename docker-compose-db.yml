@@ -3,7 +3,7 @@ services:
   mariadb:
     image: mariadb:latest
     restart: always
-    container_name: mysqldb
+    container_name: mariadbdb
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: GADATA
