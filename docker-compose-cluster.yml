@@ -32,11 +32,11 @@ services:
       - "9990:8990"
       - "9022:8022"
       # Port range used for GoFast transfers, must match range set in service configuration to work properly.
-      - "32001-32100:32001-32100"
+      #- "32001-32100:32001-32100"
       # Port range used for passive FTP transfers, must match range set in service configuration to work properly.
-      - "32101-32200:32101-32200"
+      #- "32101-32200:32101-32200"
       # Port range used for passive FTPS transfers, must match range set in service configuration to work properly.
-      - "32201-32300:32201-32300"
+      #- "32201-32300:32201-32300"
     volumes:
       - /home/azureuser/volumes/gamft.lic:/opt/HelpSystems/GoAnywhere/gamft.lic
       - userdata1:/opt/HelpSystems/GoAnywhere/userdata/
@@ -64,11 +64,11 @@ services:
       - "10990:8990"
       - "10022:8022"
       # Port range used for GoFast transfers, must match range set in service configuration to work properly.
-      - "33001-33100:32001-32100"
+      #- "33001-33100:32001-32100"
       # Port range used for passive FTP transfers, must match range set in service configuration to work properly.
-      - "33101-33200:32101-32200"
+      #- "33101-33200:32101-32200"
       # Port range used for passive FTPS transfers, must match range set in service configuration to work properly.
-      - "33201-33300:32201-32300"
+      #- "33201-33300:32201-32300"
     volumes:
       - /home/azureuser/volumes/gamft.lic:/opt/HelpSystems/GoAnywhere/gamft.lic
       - userdata2:/opt/HelpSystems/GoAnywhere/userdata/
