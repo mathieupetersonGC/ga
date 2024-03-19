@@ -3,6 +3,8 @@ services:
   mariadb:
     image: mariadb:latest
     restart: always
+    networks:
+      - default
     container_name: mariadb
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -42,6 +44,8 @@ services:
       - ${HOME}/volumes/ghttpsrootcustomdir:/opt/HelpSystems/GoAnywhere/ghttpsroot/custom/
     depends_on:
       - mariadb
+    networks:
+      - default
 volumes:
   mysql-data:
   userdata:
