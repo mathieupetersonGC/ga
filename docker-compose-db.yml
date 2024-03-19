@@ -14,7 +14,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - mysql-data:/var/lib/mysql
+      - mariadb-data:/var/lib/mysql
   #mft:
   #  image: myga:latest
   #  restart: unless-stopped
@@ -47,5 +47,5 @@ services:
   #  networks:
   #    - default
 volumes:
-  mysql-data:
+  mariadb-data:
   userdata:
