@@ -1,6 +1,6 @@
 version: '3'
 services:
-  mysqldb:
+  mariadb:
     image: mariadb:latest
     restart: always
     container_name: mysqldb
