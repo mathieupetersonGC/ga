@@ -45,7 +45,8 @@ services:
     depends_on:
       - mariadb
     networks:
-      - default
+      default:
+        mac_address: 02:42:c0:a8:99:99
 volumes:
   mariadb-data:
   userdata:
