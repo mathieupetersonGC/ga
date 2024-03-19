@@ -15,37 +15,37 @@ services:
       - "3306:3306"
     volumes:
       - mariadb-data:/var/lib/mysql
-  #mft:
-  #  image: myga:latest
-  #  restart: unless-stopped
-  #  container_name: goanywhere-mft-1
-  #  ports:
+  mft:
+    image: myga:latest
+    restart: unless-stopped
+    container_name: goanywhere-mft-1
+    ports:
       # Standard ports used by GoAnywhere MFT
-  #    - "9000-9001:8000-8001"
-  #    - "9005-9006:8005-8006"
-  #    - "9009-9010:8009-8010"
-  #    - "9443:9443"
-  #    - "9021:8021"
-  #    - "9990:8990"
-  #    - "9022:8022"
+      - "9000-9001:8000-8001"
+      - "9005-9006:8005-8006"
+      - "9009-9010:8009-8010"
+      - "9443:9443"
+      - "9021:8021"
+      - "9990:8990"
+      - "9022:8022"
       # Port range used for GoFast transfers, must match range set in service configuration to work properly.
-  #    - "32001-32100:32001-32100"
+      - "32001-32100:32001-32100"
       # Port range used for passive FTP transfers, must match range set in service configuration to work properly.
-  #    - "32101-32200:32101-32200"
+      - "32101-32200:32101-32200"
       # Port range used for passive FTPS transfers, must match range set in service configuration to work properly.
-  #    - "32201-32300:32201-32300"
-  #  volumes:
-  #    - /home/azureuser/volumes/gamft.lic:/opt/HelpSystems/GoAnywhere/gamft.lic
-  #    - userdata:/opt/HelpSystems/GoAnywhere/userdata/
-  #    - ${HOME}/volumes/upgraderlogs:/opt/HelpSystems/GoAnywhere/upgrader/logs/
-  #    - ${HOME}/volumes/configdir:/etc/HelpSystems/GoAnywhere/config/
-  #    - ${HOME}/volumes/tomcatserver:/etc/HelpSystems/GoAnywhere/tomcat/conf/
-  #    - ${HOME}/volumes/tomcatlogsdir:/opt/HelpSystems/GoAnywhere/tomcat/logs/
-  #    - ${HOME}/volumes/ghttpsrootcustomdir:/opt/HelpSystems/GoAnywhere/ghttpsroot/custom/
-  #  depends_on:
-  #    - mariadb
-  #  networks:
-  #    - default
+      - "32201-32300:32201-32300"
+    volumes:
+      - /home/azureuser/volumes/gamft.lic:/opt/HelpSystems/GoAnywhere/gamft.lic
+      - userdata:/opt/HelpSystems/GoAnywhere/userdata/
+      - ${HOME}/volumes/upgraderlogs:/opt/HelpSystems/GoAnywhere/upgrader/logs/
+      - ${HOME}/volumes/configdir:/etc/HelpSystems/GoAnywhere/config/
+      - ${HOME}/volumes/tomcatserver:/etc/HelpSystems/GoAnywhere/tomcat/conf/
+      - ${HOME}/volumes/tomcatlogsdir:/opt/HelpSystems/GoAnywhere/tomcat/logs/
+      - ${HOME}/volumes/ghttpsrootcustomdir:/opt/HelpSystems/GoAnywhere/ghttpsroot/custom/
+    depends_on:
+      - mariadb
+    networks:
+      - default
 volumes:
   mariadb-data:
   userdata:
