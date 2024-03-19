@@ -40,11 +40,11 @@ services:
     volumes:
       - /home/azureuser/volumes/gamft.lic:/opt/HelpSystems/GoAnywhere/gamft.lic
       - userdata1:/opt/HelpSystems/GoAnywhere/userdata/
-      - ${HOME}/volumes/upgraderlogs:/opt/HelpSystems/GoAnywhere/upgrader/logs/
+      - upgraderlogs1:/opt/HelpSystems/GoAnywhere/upgrader/logs/
       - ${HOME}/volumes/configdir:/etc/HelpSystems/GoAnywhere/config/
-      - tomcatserver:/etc/HelpSystems/GoAnywhere/tomcat/conf/
-      - ${HOME}/volumes/tomcatlogsdir:/opt/HelpSystems/GoAnywhere/tomcat/logs/
-      - ${HOME}/volumes/ghttpsrootcustomdir:/opt/HelpSystems/GoAnywhere/ghttpsroot/custom/
+      - tomcatserver1:/etc/HelpSystems/GoAnywhere/tomcat/conf/
+      - tomcatlogsdir1:/opt/HelpSystems/GoAnywhere/tomcat/logs/
+      - ghttpsrootcustomdir1:/opt/HelpSystems/GoAnywhere/ghttpsroot/custom/
     depends_on:
       - mariadb
   mft2:
@@ -72,15 +72,22 @@ services:
     volumes:
       - /home/azureuser/volumes/gamft.lic:/opt/HelpSystems/GoAnywhere/gamft.lic
       - userdata2:/opt/HelpSystems/GoAnywhere/userdata/
-      - ${HOME}/volumes/upgraderlogs:/opt/HelpSystems/GoAnywhere/upgrader/logs/
+      - upgraderlogs2:/opt/HelpSystems/GoAnywhere/upgrader/logs/
       - ${HOME}/volumes/configdir:/etc/HelpSystems/GoAnywhere/config/
-      - tomcatserver:/etc/HelpSystems/GoAnywhere/tomcat/conf/
-      - ${HOME}/volumes/tomcatlogsdir:/opt/HelpSystems/GoAnywhere/tomcat/logs/
-      - ${HOME}/volumes/ghttpsrootcustomdir:/opt/HelpSystems/GoAnywhere/ghttpsroot/custom/
+      - tomcatserver2:/etc/HelpSystems/GoAnywhere/tomcat/conf/
+      - tomcatlogsdir2:/opt/HelpSystems/GoAnywhere/tomcat/logs/
+      - ghttpsrootcustomdir2:/opt/HelpSystems/GoAnywhere/ghttpsroot/custom/
     depends_on:
       - mariadb
 volumes:
-  tomcatserver:  
+  tomcatserver1:
+  tomcatserver2:
   mariadb-data:
   userdata1:
   userdata2:
+  upgraderlogs1:
+  upgraderlogs2:
+  tomcatlogsdir1:
+  tomcatlogsdir2:
+  ghttpsrootcustomdir1:
+  ghttpsrootcustomdir2:
