@@ -41,7 +41,7 @@ services:
       - ${HOME}/volumes/tomcatlogsdir:/opt/HelpSystems/GoAnywhere/tomcat/logs/
       - ${HOME}/volumes/ghttpsrootcustomdir:/opt/HelpSystems/GoAnywhere/ghttpsroot/custom/
     depends_on:
-      - mysqldb
+      - mariadb
 volumes:
   mysql-data:
   userdata:
