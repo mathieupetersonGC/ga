@@ -80,7 +80,7 @@ services:
       # Port range used for passive FTPS transfers, must match range set in service configuration to work properly.
       - "42201-42300:42201-42300"
     volumes:
-      - /home/azureuser/volumes/gamft.lic:/opt/HelpSystems/GoAnywhere/gamft.lic
+      #- /home/azureuser/volumes/gamft.lic:/opt/HelpSystems/GoAnywhere/gamft.lic
       - cluster_dir:/opt/HelpSystems/GoAnywhere/cluster
       - userdata2:/opt/HelpSystems/GoAnywhere/userdata/
       - upgraderlogs2:/opt/HelpSystems/GoAnywhere/upgrader/logs/
