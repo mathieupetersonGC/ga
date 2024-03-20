@@ -44,7 +44,7 @@ services:
     volumes:
       - /home/azureuser/volumes/gamft.lic:/opt/HelpSystems/GoAnywhere/gamft.lic
       - cluster_dir:/opt/HelpSystems/GoAnywhere/cluster
-      - ${HOME}/volumes/userdata:/opt/HelpSystems/GoAnywhere/userdata/
+      - userdata1:/opt/HelpSystems/GoAnywhere/userdata/
       - upgraderlogs1:/opt/HelpSystems/GoAnywhere/upgrader/logs/
       - configdir1:/etc/HelpSystems/GoAnywhere/config/
       - tomcatserver1:/etc/HelpSystems/GoAnywhere/tomcat/conf/
@@ -83,7 +83,7 @@ services:
     volumes:
       - /home/azureuser/volumes/gamft.lic:/opt/HelpSystems/GoAnywhere/gamft.lic
       - cluster_dir:/opt/HelpSystems/GoAnywhere/cluster
-      - ${HOME}/volumes/userdata:/opt/HelpSystems/GoAnywhere/userdata/
+      - userdata2:/opt/HelpSystems/GoAnywhere/userdata/
       - upgraderlogs2:/opt/HelpSystems/GoAnywhere/upgrader/logs/
       - configdir2:/etc/HelpSystems/GoAnywhere/config/
       - tomcatserver2:/etc/HelpSystems/GoAnywhere/tomcat/conf/
@@ -94,11 +94,13 @@ services:
 volumes:
   mariadb-data:
   cluster_dir:
+  userdata1:
   configdir1:
   upgraderlogs1:
   tomcatserver1:
   tomcatlogsdir1:
   ghttpsrootcustomdir1:
+  userdata2:
   configdir2:
   upgraderlogs2:
   tomcatserver2:
