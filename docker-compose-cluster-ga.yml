@@ -50,6 +50,7 @@ services:
       - tomcatserver1:/etc/HelpSystems/GoAnywhere/tomcat/conf/
       - tomcatlogsdir1:/opt/HelpSystems/GoAnywhere/tomcat/logs/
       - ghttpsrootcustomdir1:/opt/HelpSystems/GoAnywhere/ghttpsroot/custom/
+      - ${HOME}/volumes/shareduserdata:/opt/HelpSystems/GoAnywhere/shareduserdata/
     depends_on:
       - mariadb
   mft2:
@@ -89,6 +90,7 @@ services:
       - tomcatserver2:/etc/HelpSystems/GoAnywhere/tomcat/conf/
       - tomcatlogsdir2:/opt/HelpSystems/GoAnywhere/tomcat/logs/
       - ghttpsrootcustomdir2:/opt/HelpSystems/GoAnywhere/ghttpsroot/custom/
+      - ${HOME}/volumes/shareduserdata:/opt/HelpSystems/GoAnywhere/shareduserdata/
     depends_on:
       - mariadb
 volumes:
