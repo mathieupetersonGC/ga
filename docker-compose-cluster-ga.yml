@@ -60,9 +60,9 @@ services:
       default:
         mac_address: 02:42:c0:a8:99:99
 #   Uncomment the following line if adding or enabling any environment variables
-#   environment:
+    environment:
 #   Uncomment the following line and update to TRUE to enable automated cluster setup.
-#      - MFT_CLUSTER=FALSE
+      - MFT_CLUSTER=FALSE
 #   Uncomment the following line and update it to increase Java Max Memory. Supplied amount will be in MB.
 #     - JAVA_MAX_MEMORY=2048
     ports:
