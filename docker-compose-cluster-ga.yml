@@ -46,7 +46,7 @@ services:
       - cluster_dir:/opt/HelpSystems/GoAnywhere/cluster
       - userdata1:/opt/HelpSystems/GoAnywhere/userdata/
       - upgraderlogs1:/opt/HelpSystems/GoAnywhere/upgrader/logs/
-      - ${HOME}/volumes/configdir:/etc/HelpSystems/GoAnywhere/config/
+      - configdir1:/etc/HelpSystems/GoAnywhere/config/
       - tomcatserver1:/etc/HelpSystems/GoAnywhere/tomcat/conf/
       - tomcatlogsdir1:/opt/HelpSystems/GoAnywhere/tomcat/logs/
       - ghttpsrootcustomdir1:/opt/HelpSystems/GoAnywhere/ghttpsroot/custom/
@@ -85,7 +85,7 @@ services:
       - cluster_dir:/opt/HelpSystems/GoAnywhere/cluster
       - userdata2:/opt/HelpSystems/GoAnywhere/userdata/
       - upgraderlogs2:/opt/HelpSystems/GoAnywhere/upgrader/logs/
-      - ${HOME}/volumes/configdir:/etc/HelpSystems/GoAnywhere/config/
+      - configdir2:/etc/HelpSystems/GoAnywhere/config/
       - tomcatserver2:/etc/HelpSystems/GoAnywhere/tomcat/conf/
       - tomcatlogsdir2:/opt/HelpSystems/GoAnywhere/tomcat/logs/
       - ghttpsrootcustomdir2:/opt/HelpSystems/GoAnywhere/ghttpsroot/custom/
@@ -94,11 +94,13 @@ services:
 volumes:
   mariadb-data:
   cluster_dir:
+  configdir1:
   userdata1:
   upgraderlogs1:
   tomcatserver1:
   tomcatlogsdir1:
   ghttpsrootcustomdir1:
+  configdir2:
   userdata2:
   upgraderlogs2:
   tomcatserver2:
