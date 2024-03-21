@@ -55,9 +55,51 @@ services:
       - ${HOME}/volumes/shareduserdata:/opt/HelpSystems/GoAnywhere/shareduserdata/
     depends_on:
       - mariadb
-  mft2:
+#  mft2:
+#    image: myga:latest
+#    container_name: goanywhere-mft-2
+#    restart: unless-stopped
+#    networks:
+#      - default
+#      default:
+#        mac_address: 02:42:c0:a8:99:99
+#   Uncomment the following line if adding or enabling any environment variables
+#    environment:
+#   Uncomment the following line and update to TRUE to enable automated cluster setup.
+#      - MFT_CLUSTER=TRUE
+#   Uncomment the following line and update it to increase Java Max Memory. Supplied amount will be in MB.
+#     - JAVA_MAX_MEMORY=2048
+#    ports:
+      # Standard ports used by GoAnywhere MFT
+#      - "9000-9001:8000-8001"
+#      - "9005-9006:8005-8006"
+#      - "9009-9010:8009-8010"
+#      - "9443:8443"
+#      - "9021:8021"
+#      - "9990:8990"
+#      - "9022:8022"
+      # Port range used for GoFast transfers, must match range set in service configuration to work properly.
+#      - "42001-42100:42001-42100"
+      # Port range used for passive FTP transfers, must match range set in service configuration to work properly.
+#      - "42101-42200:42101-42200"
+      # Port range used for passive FTPS transfers, must match range set in service configuration to work properly.
+#      - "42201-42300:42201-42300"
+#    volumes:
+      #- /home/azureuser/volumes/gamft.lic:/opt/HelpSystems/GoAnywhere/gamft.lic
+#      - /home/azureuser/volumes/shareduserdata/logs:/opt/HelpSystems/GoAnywhere/userdata/logs/
+#      - cluster_dir:/opt/HelpSystems/GoAnywhere/cluster
+#      - userdata2:/opt/HelpSystems/GoAnywhere/userdata/
+#      - upgraderlogs2:/opt/HelpSystems/GoAnywhere/upgrader/logs/
+#      - configdir2:/etc/HelpSystems/GoAnywhere/config/
+#      - tomcatserver2:/etc/HelpSystems/GoAnywhere/tomcat/conf/
+#      - tomcatlogsdir2:/opt/HelpSystems/GoAnywhere/tomcat/logs/
+#      - ghttpsrootcustomdir2:/opt/HelpSystems/GoAnywhere/ghttpsroot/custom/
+#      - ${HOME}/volumes/shareduserdata:/opt/HelpSystems/GoAnywhere/shareduserdata/
+#    depends_on:
+#      - mariadb
+  mft3:
     image: myga:latest
-    container_name: goanywhere-mft-2
+    container_name: goanywhere-mft-3
     restart: unless-stopped
     networks:
       - default
@@ -71,29 +113,29 @@ services:
 #     - JAVA_MAX_MEMORY=2048
     ports:
       # Standard ports used by GoAnywhere MFT
-      - "9000-9001:8000-8001"
-      - "9005-9006:8005-8006"
-      - "9009-9010:8009-8010"
-      - "9443:8443"
-      - "9021:8021"
-      - "9990:8990"
-      - "9022:8022"
+      - "10000-10001:8000-8001"
+      - "10005-10006:8005-8006"
+      - "10009-10010:8009-8010"
+      - "10443:8443"
+      - "10021:8021"
+      - "10990:8990"
+      - "10022:8022"
       # Port range used for GoFast transfers, must match range set in service configuration to work properly.
-      - "42001-42100:42001-42100"
+      - "52001-52100:52001-52100"
       # Port range used for passive FTP transfers, must match range set in service configuration to work properly.
-      - "42101-42200:42101-42200"
+      - "52101-52200:52101-52200"
       # Port range used for passive FTPS transfers, must match range set in service configuration to work properly.
-      - "42201-42300:42201-42300"
+      - "52201-52300:52201-52300"
     volumes:
       #- /home/azureuser/volumes/gamft.lic:/opt/HelpSystems/GoAnywhere/gamft.lic
       - /home/azureuser/volumes/shareduserdata/logs:/opt/HelpSystems/GoAnywhere/userdata/logs/
       - cluster_dir:/opt/HelpSystems/GoAnywhere/cluster
-      - userdata2:/opt/HelpSystems/GoAnywhere/userdata/
-      - upgraderlogs2:/opt/HelpSystems/GoAnywhere/upgrader/logs/
-      - configdir2:/etc/HelpSystems/GoAnywhere/config/
-      - tomcatserver2:/etc/HelpSystems/GoAnywhere/tomcat/conf/
-      - tomcatlogsdir2:/opt/HelpSystems/GoAnywhere/tomcat/logs/
-      - ghttpsrootcustomdir2:/opt/HelpSystems/GoAnywhere/ghttpsroot/custom/
+      - userdata3:/opt/HelpSystems/GoAnywhere/userdata/
+      - upgraderlogs3:/opt/HelpSystems/GoAnywhere/upgrader/logs/
+      - configdir3:/etc/HelpSystems/GoAnywhere/config/
+      - tomcatserver3:/etc/HelpSystems/GoAnywhere/tomcat/conf/
+      - tomcatlogsdir3:/opt/HelpSystems/GoAnywhere/tomcat/logs/
+      - ghttpsrootcustomdir3:/opt/HelpSystems/GoAnywhere/ghttpsroot/custom/
       - ${HOME}/volumes/shareduserdata:/opt/HelpSystems/GoAnywhere/shareduserdata/
     depends_on:
       - mariadb
@@ -112,3 +154,9 @@ volumes:
   tomcatserver2:
   tomcatlogsdir2:
   ghttpsrootcustomdir2:
+  userdata3:
+  configdir3:
+  upgraderlogs3:
+  tomcatserver3:
+  tomcatlogsdir3:
+  ghttpsrootcustomdir3:
