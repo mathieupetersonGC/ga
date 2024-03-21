@@ -44,6 +44,7 @@ services:
       - "32201-32300:32201-32300"
     volumes:
       #- /home/azureuser/volumes/gamft.lic:/opt/HelpSystems/GoAnywhere/gamft.lic
+      - /home/azureuser/volumes/shareduserdata/logs:/opt/HelpSystems/GoAnywhere/userdata/logs/
       - cluster_dir:/opt/HelpSystems/GoAnywhere/cluster
       - userdata1:/opt/HelpSystems/GoAnywhere/userdata/
       - upgraderlogs1:/opt/HelpSystems/GoAnywhere/upgrader/logs/
@@ -85,6 +86,7 @@ services:
       - "42201-42300:42201-42300"
     volumes:
       #- /home/azureuser/volumes/gamft.lic:/opt/HelpSystems/GoAnywhere/gamft.lic
+      - /home/azureuser/volumes/shareduserdata/logs:/opt/HelpSystems/GoAnywhere/userdata/logs/
       - cluster_dir:/opt/HelpSystems/GoAnywhere/cluster
       - userdata2:/opt/HelpSystems/GoAnywhere/userdata/
       - upgraderlogs2:/opt/HelpSystems/GoAnywhere/upgrader/logs/
