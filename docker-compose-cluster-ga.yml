@@ -103,7 +103,7 @@ services:
       - default
     environment:
 #   Uncomment the following line and update to TRUE to enable automated cluster setup.
-#      - MFT_CLUSTER=TRUE
+      - MFT_CLUSTER=TRUE
 #   Uncomment the following line and update it to increase Java Max Memory. Supplied amount will be in MB.
 #     - JAVA_MAX_MEMORY=2048
       - SYSTEM_NAME=MFT3
