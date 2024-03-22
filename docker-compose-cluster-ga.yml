@@ -25,6 +25,8 @@ services:
 #   Uncomment the following line and update it to increase Java Max Memory. Supplied amount will be in MB.
 #     - JAVA_MAX_MEMORY=2048
       - SYSTEM_NAME=MFT1
+    env_file:
+      - local_config.env
     ports:
       # Standard ports used by GoAnywhere MFT
       - "8000-8001:8000-8001"
@@ -64,6 +66,8 @@ services:
 #   Uncomment the following line and update it to increase Java Max Memory. Supplied amount will be in MB.
       #- JAVA_MAX_MEMORY=2048
 #      - SYSTEM_NAME=MFT2
+#    env_file:
+#      - local_config.env
 #    ports:
       # Standard ports used by GoAnywhere MFT
 #      - "9000-9001:8000-8001"
@@ -103,6 +107,8 @@ services:
 #   Uncomment the following line and update it to increase Java Max Memory. Supplied amount will be in MB.
 #     - JAVA_MAX_MEMORY=2048
       - SYSTEM_NAME=MFT3
+    env_file:
+      - local_config.env
     ports:
       # Standard ports used by GoAnywhere MFT
       - "10000-10001:8000-8001"
