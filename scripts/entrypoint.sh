@@ -38,7 +38,7 @@ sed -i "s|password\">.*<|password\">$DB_PASSWORD<|g" /etc/HelpSystems/GoAnywhere
 sed -i "s|username\">.*<|username\">$DB_USERNAME<|g" /etc/HelpSystems/GoAnywhere/config/database.xml
 sed -i "s|driverClassName\">.*<|driverClassName\">$DB_DRIVERCLASSNAME<|g" /etc/HelpSystems/GoAnywhere/config/database.xml
 sed -i "s|url\">.*<|url\">$DB_URL<|g" /etc/HelpSystems/GoAnywhere/config/database.xml
-sed -i "s|</properties>|<entry key=\"passwordIsEncrypted\">true</entry>\r</properties>|g" /etc/HelpSystems/GoAnywhere/config/database.xml
+grep -qxF 'passwordIsEncrypted' /etc/HelpSystems/GoAnywhere/config/database.xml || sed -i "s|</properties>|<entry key=\"passwordIsEncrypted\">true</entry>\r</properties>|g" /etc/HelpSystems/GoAnywhere/config/database.xml
 
 JVM='1024'
 if [ -n "$JAVA_MAX_MEMORY" ]; then
