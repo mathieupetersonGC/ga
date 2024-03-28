@@ -1,4 +1,4 @@
-FROM helpsystems/goanywhere-mft:latest
+FROM helpsystems/goanywhere-mft:7.4.2
 
 COPY /lib/* /opt/HelpSystems/GoAnywhere/lib/
 
