@@ -6,8 +6,8 @@ USER root
 
 COPY /scripts/entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh \
-  && chown -R gamft:root /etc/HelpSystems/GoAnywhere \
-  && chown -R gamft:root /opt/HelpSystems/GoAnywhere
+  && chown -R gamft:gamft /etc/HelpSystems \
+  && chown -R gamft:gamft /opt/HelpSystems
 
 RUN rm -rf /etc/yum.repos.d/linuxrepos.repo
 
