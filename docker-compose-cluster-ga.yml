@@ -16,7 +16,7 @@ services:
   mft:
     image: myga:latest
     container_name: goanywhere-mft-1
-    restart: 'no'
+    restart: unless-stopped
     networks:
       - default
     environment:

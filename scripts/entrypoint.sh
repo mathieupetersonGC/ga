@@ -17,9 +17,9 @@ echo "********************************************"
 echo "********************************************"
 
 # Verify files are owned by gamft:root.
-echo "Updating files permissions for /etc/HelpSystems/GoAnywhere and /opt/HelpSystems/GoAnywhere directories..."
-sudo find /etc/HelpSystems/GoAnywhere \! -user gamft -exec chown gamft:root {} \;
-sudo find /opt/HelpSystems/GoAnywhere \! -user gamft -exec chown gamft:root {} \;
+#echo "Updating files permissions for /etc/HelpSystems/GoAnywhere and /opt/HelpSystems/GoAnywhere directories..."
+#sudo find /etc/HelpSystems/GoAnywhere \! -user gamft -exec chown gamft:root {} \;
+#sudo find /opt/HelpSystems/GoAnywhere \! -user gamft -exec chown gamft:root {} \;
 
 cd /opt/HelpSystems/GoAnywhere
 
