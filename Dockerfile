@@ -1,7 +1,6 @@
 FROM helpsystems/goanywhere-mft:latest
 
 COPY /lib/* /opt/HelpSystems/GoAnywhere/lib/
-COPY /config/cluster.xml /etc/HelpSystems/GoAnywhere/config/cluster.xml
 
 USER root
 
