@@ -49,7 +49,7 @@ services:
       - upgraderlogs1:/opt/HelpSystems/GoAnywhere/upgrader/logs/
 #      - configdir1:/etc/HelpSystems/GoAnywhere/config/
       - ${HOME}/volumes/configdir:/etc/HelpSystems/GoAnywhere/config/
-      - ${HOME}/volumes/configdir/clustermft1.xml:/etc/HelpSystems/GoAnywhere/config/cluster.xml
+      - /home/azureuser/volumes/configdir/clustermft1.xml:/etc/HelpSystems/GoAnywhere/config/cluster.xml
       - tomcatserver1:/etc/HelpSystems/GoAnywhere/tomcat/conf/
       - tomcatlogsdir1:/opt/HelpSystems/GoAnywhere/tomcat/logs/
       - ghttpsrootcustomdir1:/opt/HelpSystems/GoAnywhere/ghttpsroot/custom/
@@ -133,7 +133,7 @@ services:
       - upgraderlogs3:/opt/HelpSystems/GoAnywhere/upgrader/logs/
 #      - configdir3:/etc/HelpSystems/GoAnywhere/config/
       - ${HOME}/volumes/configdir:/etc/HelpSystems/GoAnywhere/config/
-      - ${HOME}/volumes/configdir/clustermft3.xml:/etc/HelpSystems/GoAnywhere/config/cluster.xml
+      - /home/azureuser/volumes/configdir/clustermft3.xml:/etc/HelpSystems/GoAnywhere/config/cluster.xml
       - tomcatserver3:/etc/HelpSystems/GoAnywhere/tomcat/conf/
       - tomcatlogsdir3:/opt/HelpSystems/GoAnywhere/tomcat/logs/
       - ghttpsrootcustomdir3:/opt/HelpSystems/GoAnywhere/ghttpsroot/custom/
