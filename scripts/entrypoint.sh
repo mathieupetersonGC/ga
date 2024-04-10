@@ -60,6 +60,9 @@ fi
 # variables.
 shareconfig_folder="/etc/HelpSystems/GoAnywhere/sharedconfig"
 
+# Copy the database.xml file to the shared config folder.
+cp "${config_folder}"/database.xml "${shareconfig_folder}"/database.xml
+
 # Update the file database.xml with the correct values.
 sed -i "s|sequencePoolMaxIdle\">.*<|sequencePoolMaxIdle\">5<|g" "${shareconfig_folder}"/database.xml
 sed -i "s|password\">.*<|password\">$DB_PASSWORD<|g" "${shareconfig_folder}"/database.xml
