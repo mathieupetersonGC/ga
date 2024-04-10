@@ -68,11 +68,9 @@ sed -i "s|driverClassName\">.*<|driverClassName\">$DB_DRIVERCLASSNAME<|g" "${sha
 sed -i "s|url\">.*<|url\">$DB_URL<|g" "${shareconfig_folder}"/database.xml
 grep -q 'passwordIsEncrypted' "${shareconfig_folder}"/database.xml || sed -i "s|</properties>|<entry key=\"passwordIsEncrypted\">true</entry>\n</properties>|g" "${shareconfig_folder}"/database.xml
 
-rm "/etc/HelpSystems/GoAnywhere/config/database.xml"
-ln -s "/etc/HelpSystems/GoAnywhere/sharedconfig/database.xml" "/etc/HelpSystems/GoAnywhere/config/database.xml" 
-ls -la /etc/HelpSystems/GoAnywhere/config/
-
-ls -la /etc/HelpSystems/GoAnywhere/config/
+rm "${shareconfig_folder}"/database.xml
+ln -s "${shareconfig_folder}"/database.xml "${config_folder}"/database.xml
+ls -la "${config_folder}"
 
 JVM='1024'
 if [ -n "$JAVA_MAX_MEMORY" ]; then
