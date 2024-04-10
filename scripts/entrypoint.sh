@@ -21,8 +21,8 @@ echo "********************************************"
 #sudo find /etc/HelpSystems/GoAnywhere \! -user gamft -exec chown gamft:root {} \;
 #sudo find /opt/HelpSystems/GoAnywhere \! -user gamft -exec chown gamft:root {} \;
 
-rm "/etc/HelpSystems/GoAnywhere/config/cluster.xml"
-ln -s "/home/azureuser/volumes/configdir/cluster$SYSTEM_NAME.xml" "/etc/HelpSystems/GoAnywhere/config/cluster.xml"
+rm "/etc/HelpSystems/GoAnywhere/config/database.xml"
+ln -s "/etc/HelpSystems/GoAnywhere/sharedconfig/database.xml" "/etc/HelpSystems/GoAnywhere/config/database.xml" 
 
 cd /opt/HelpSystems/GoAnywhere
 
