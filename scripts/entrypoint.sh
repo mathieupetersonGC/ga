@@ -16,7 +16,9 @@ echo "********************************************"
 echo "********************************************"
 echo "********************************************"
 
-cd /opt/HelpSystems/GoAnywhere
+PRGDIR="/opt/HelpSystems/GoAnywhere"
+
+cd "${PRGDIR}"
 
 # variables.
 config_folder="/etc/HelpSystems/GoAnywhere/config"
@@ -75,8 +77,6 @@ fi
 
 JAVA_OPTS="-Xmx"$JVM"m -XX:MaxMetaspaceSize=1024m -Djava.awt.headless=true"
 export JAVA_OPTS
-
-PRGDIR=`pwd`
 
 # Use the bundled JRE if one has been bundled.
 if [ -d "$PRGDIR/jre6" ]
