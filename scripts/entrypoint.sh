@@ -16,13 +16,6 @@ echo "********************************************"
 echo "********************************************"
 echo "********************************************"
 
-# Verify files are owned by gamft:root.
-#echo "Updating files permissions for /etc/HelpSystems/GoAnywhere and /opt/HelpSystems/GoAnywhere directories..."
-#sudo find /etc/HelpSystems/GoAnywhere \! -user gamft -exec chown gamft:root {} \;
-#sudo find /opt/HelpSystems/GoAnywhere \! -user gamft -exec chown gamft:root {} \;
-
-
-
 cd /opt/HelpSystems/GoAnywhere
 
 # variables.
@@ -31,13 +24,6 @@ config_folder="/etc/HelpSystems/GoAnywhere/config"
 # Update ports and db location in different files.
 if [ -f "upgrader/ga_upgrade.jar" ]
 then
-  echo "Updating default port settings for https, ftp, ftps and SFTP..."
-  sed -i 's|"443"|"8443"|g' "${config_folder}"/https.xml
-  sed -i 's|"21"|"8021"|g' "${config_folder}"/ftp.xml
-  sed -i 's|"990"|"8990"|g' "${config_folder}"/ftps.xml
-  sed -i 's|"22"|"8022"|g' "${config_folder}"/sftp.xml
-  echo "Updating default database location..."
-  sed -i 's|/usr/local/HelpSystems/GoAnywhere|/opt/HelpSystems/GoAnywhere|g' "${config_folder}"/database.xml
   echo Running upgrader...
   java -classpath upgrader/ga_upgrade.jar -javaagent:upgrader/ga_upgrade.jar com.linoma.goanywhere.upgrader.Startup skipFiles
   if [ $? -eq 0 ]
@@ -60,16 +46,10 @@ fi
 # variables.
 shareconfig_folder="/etc/HelpSystems/GoAnywhere/sharedconfig"
 
-# Copy the database.xml file to the shared config folder.
-#cp "${config_folder}"/*.xml "${shareconfig_folder}"/
-
 # Update the file database.xml with the correct values.
-sed -i "s|sequencePoolMaxIdle\">.*<|sequencePoolMaxIdle\">5<|g" "${shareconfig_folder}"/database.xml
 sed -i "s|password\">.*<|password\">$DB_PASSWORD<|g" "${shareconfig_folder}"/database.xml
 sed -i "s|username\">.*<|username\">$DB_USERNAME<|g" "${shareconfig_folder}"/database.xml
-sed -i "s|driverClassName\">.*<|driverClassName\">$DB_DRIVERCLASSNAME<|g" "${shareconfig_folder}"/database.xml
 sed -i "s|url\">.*<|url\">$DB_URL<|g" "${shareconfig_folder}"/database.xml
-grep -q 'passwordIsEncrypted' "${shareconfig_folder}"/database.xml || sed -i "s|</properties>|<entry key=\"passwordIsEncrypted\">true</entry>\n</properties>|g" "${shareconfig_folder}"/database.xml
 
 cd "${config_folder}"
 shopt -s extglob

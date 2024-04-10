@@ -4,7 +4,7 @@
     <entry key="password">[[PASSWORD]]</entry>
     <entry key="mft.useSequencePool">true</entry>
     <entry key="mft.sequencePoolMaximumPoolSize">8</entry>
-    <entry key="driverClassName">[[DRIVERCLASSNAME]]</entry>
+    <entry key="driverClassName">org.mariadb.jdbc.Driver</entry>
     <entry key="maximumPoolSize">100</entry>
     <entry key="connectionTimeout">10000</entry>
     <entry key="mft.sequencePoolConnectionTimeout">10000</entry>
