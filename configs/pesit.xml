@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<server>
+    <listener name="default" port="6330">
+        <ssl sslEnabled="true" protocol="TLS" clientAuthentication="NONE" keyName="goanywhere-sample" />
+    </listener>
+</server>

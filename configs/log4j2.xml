@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="error" strict="true">
+
+    <Appenders>
+        <!-- FTP/FTPS DEBUG Appender -->
+        <!-- 
+        <Appender type="Console" name="ftpservice">
+        <Layout type="PatternLayout"
+        pattern="[%5p] %d [FTP] [%X{userName}] [%X{remoteIp}] %m%n" />
+        </Appender>
+        -->
+
+        <!-- SFTP DEBUG Appender -->
+        <!-- 
+        <Appender type="Console" name="sftpservice">
+        <Layout type="PatternLayout"
+        pattern="[%5p] %d [SFTP] %m%n" />
+        </Appender>
+        -->
+    </Appenders>
+    <Loggers>
+        <!-- FTP/FTPS DEBUG Logger -->
+        <!-- 
+        <Logger name="org.apache.ftpserver" level="debug" additivity="false">
+        <AppenderRef ref="ftpservice" />
+        </Logger>
+        -->
+
+        <!-- FTP/FTPS DEBUG Logger -->
+        <!-- 
+        <Logger name="com.maverick" level="debug" additivity="false">
+        <AppenderRef ref="sftpservice" />
+        </Logger>
+        -->
+
+        <Root level="error">
+        </Root>
+    </Loggers>
+
+</Configuration>

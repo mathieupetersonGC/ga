@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<server loginFailureDelay="5" maxLoginFailures="5" maxLogins="100" maxTransferThreads="1000" sessionTimeout="300" udpDataPortRange="32001-32100">
+    <listener name="default" controlPort="8010">
+        <ssl protocol="TLS" clientAuthentication="NONE" keyLocation="keyVault" keyName="goanywhere-sample"/>
+    </listener>
+</server>

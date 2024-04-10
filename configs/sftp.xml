@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server name="default" loginFailureDelay="5000" maxDHKey="8192" maxLoginFailures="5" maxLogins="500" minDHKey="1024" idleTimeout="300" enabledCipherAlgorithms="aes128-cbc,3des-cbc,blowfish-cbc,aes192-cbc,aes256-cbc" enabledMacAlgorithms="hmac-sha2-256,hmac-sha1,hmac-md5" enabledCompressionAlgorithms="none,zlib">
+    <listener name="default" port="8022" localAddress="0.0.0.0" />
+    <hostKeys keyLocation="keyVault" dsaKey="sftp-dsa-2048" rsaKey="sftp-rsa-2048" />
+    <messages>
+        <message type="welcome"><![CDATA[Welcome! Please login.]]></message>
+    </messages>
+</server>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server maxLogins="500" loginFailureDelay="5000" maxLoginFailures="5" enableAnonymousLogins="false" maxAnonymousLogins="10" maxThreads="500">
+    <listener name="default" port="8990" idleTimeout="300">
+        <ssl protocol="TLS" clientAuthentication="NONE" keyLocation="keyVault" keyName="goanywhere-sample" />
+        <dataConnection idleTimeout="120">
+            <active enabled="true" validateIP="true" />
+            <passive ports="32201-32300" />
+        </dataConnection>
+    </listener>
+</server>

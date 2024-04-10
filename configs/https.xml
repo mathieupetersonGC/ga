@@ -1,0 +1,9 @@
+<Server>
+    <Service name="ghttps">
+        <Connector name="default" port="8443" protocol="HTTP/1.1" SSLEnabled="true" enableLookups="false" disableUploadTimeout="true" scheme="https" secure="true" clientAuth="false" sslProtocol="TLS" keyLocation="keyVault" keyName="goanywhere-sample" truststoreAlgorithm="X509"/>
+        <Engine name="ghttps" defaultHost="localhost">
+            <Host name="localhost">
+            </Host>
+        </Engine>
+    </Service>
+</Server>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gateways>
+    <gateway enabled="false" autoStart="false" controllerPort="9100" maxThreads="2000" minThreads="10" threadKeepAlive="60">
+        <ssl sslEnabled="false" sslContextProtocol="TLS" />
+        <mappings>
+            <mapping label="HTTPS"  serviceId="1"   serviceManaged="true" fromPort="443"   portResolverName="default" toPort="443"  rule="https" />
+            <mapping label="FTP"    serviceId="2"   serviceManaged="true" fromPort="21"    portResolverName="default" toPort="21"   rule="default"/>
+            <mapping label="FTPS"   serviceId="4"   serviceManaged="true" fromPort="990"   portResolverName="default" toPort="990"  rule="default"/>
+            <mapping label="SFTP"   serviceId="8"   serviceManaged="true" fromPort="22"    portResolverName="default" toPort="22"   rule="default" />
+            <mapping label="GOFAST" serviceId="32"  serviceManaged="true" fromPort="8010"  portResolverName="default" toPort="8010" rule="default" />
+            <mapping label="AGENT"  serviceId="64"  serviceManaged="true" fromPort="8009"  portResolverName="default" toPort="8009" rule="agent" />
+            <mapping label="PESIT"  serviceId="512" serviceManaged="true" fromPort="6330"  portResolverName="default" toPort="6330" rule="default" />
+        </mappings>
+    </gateway>
+</gateways>

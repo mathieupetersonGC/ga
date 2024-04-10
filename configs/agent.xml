@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<server>
+    <ssl protocol="TLS"/>
+    <listener port="8009" name="default">
+    </listener>
+</server>

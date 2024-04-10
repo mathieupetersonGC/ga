@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="drbg.requiredEntropy.bits">default</entry>
+    <entry key="fips.provider">BC</entry>
+    <entry key="fips.enabled">false</entry>
+    <entry key="tls.disabledCipherSuites"></entry>
+    <entry key="tls.disabledProtocols"></entry>
+    <entry key="ssh.implicitTrust.allowAll">true</entry>
+    <entry key="x509.implicitTrust.allowAll">true</entry>
+    <entry key="x509.hostnameVerification.strict">false</entry>
+    <entry key="x509.server.basicConstraintChecking.enabled">true</entry>
+    <entry key="x509.client.basicConstraintChecking.enabled">true</entry>
+    <entry key="x509.email.basicConstraintChecking.enabled">true</entry>
+    <entry key="x509.client.dateValidityChecking.enabled">true</entry>
+    <entry key="x509.server.dateValidityChecking.enabled">true</entry>
+    <entry key="x509.email.dateValidityChecking.enabled">true</entry>
+    <entry key="x509.client.extendedKeyUsageChecking.enabled">true</entry>
+    <entry key="x509.server.extendedKeyUsageChecking.enabled">true</entry>
+    <entry key="x509.email.extendedKeyUsageChecking.enabled">true</entry>
+    <entry key="x509.client.crlChecking.enabled">false</entry>
+    <entry key="x509.server.crlChecking.enabled">false</entry>
+    <entry key="x509.email.crlChecking.enabled">false</entry>
+    <entry key="x509.crlChecking.refreshInterval">5</entry>
+    <entry key="x509.crlChecking.urls"></entry>
+</properties>
