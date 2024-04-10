@@ -68,7 +68,7 @@ sed -i "s|driverClassName\">.*<|driverClassName\">$DB_DRIVERCLASSNAME<|g" "${sha
 sed -i "s|url\">.*<|url\">$DB_URL<|g" "${shareconfig_folder}"/database.xml
 grep -q 'passwordIsEncrypted' "${shareconfig_folder}"/database.xml || sed -i "s|</properties>|<entry key=\"passwordIsEncrypted\">true</entry>\n</properties>|g" "${shareconfig_folder}"/database.xml
 
-rm "${shareconfig_folder}"/database.xml
+rm "${config_folder}"/database.xml
 ln -s "${shareconfig_folder}"/database.xml "${config_folder}"/database.xml
 ls -la "${config_folder}"
 
