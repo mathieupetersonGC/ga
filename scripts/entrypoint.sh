@@ -23,6 +23,7 @@ echo "********************************************"
 
 rm "/etc/HelpSystems/GoAnywhere/config/database.xml"
 ln -s "/etc/HelpSystems/GoAnywhere/sharedconfig/database.xml" "/etc/HelpSystems/GoAnywhere/config/database.xml" 
+ls -la /etc/HelpSystems/GoAnywhere/config/
 
 cd /opt/HelpSystems/GoAnywhere
 
