@@ -40,6 +40,12 @@ services:
       - tomcatlogsdir1:/opt/HelpSystems/GoAnywhere/tomcat/logs/
       - ghttpsrootcustomdir1:/opt/HelpSystems/GoAnywhere/ghttpsroot/custom/
       - ${HOME}/volumes/shareduserdata:/opt/HelpSystems/GoAnywhere/shareduserdata/
+    healthcheck:
+      test: curl --fail http://localhost:8000/ || exit 1
+      interval: 40s
+      timeout: 30s
+      retries: 3
+      start_period: 60s
 #  mft2:
 #    image: myga:latest
 #    container_name: goanywhere-mft-2
@@ -122,6 +128,10 @@ services:
       - tomcatlogsdir3:/opt/HelpSystems/GoAnywhere/tomcat/logs/
       - ghttpsrootcustomdir3:/opt/HelpSystems/GoAnywhere/ghttpsroot/custom/
       - ${HOME}/volumes/shareduserdata:/opt/HelpSystems/GoAnywhere/shareduserdata/
+    depends_on:
+      mft:
+        condition: service_healthy
+        restart: true
 volumes:
   cluster_dir:
   userdata1:
