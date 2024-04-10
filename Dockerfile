@@ -6,7 +6,7 @@ USER root
 
 COPY /scripts/entrypoint.sh /usr/bin/
 
-COPY /configs/ /home/azureuser/volumes/sharedconfig/ 
+COPY /configs/* /home/azureuser/volumes/sharedconfig/ 
 
 RUN chmod +x /usr/bin/entrypoint.sh \
   && chown -R gamft:gamft /etc/HelpSystems \
