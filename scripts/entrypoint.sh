@@ -21,9 +21,7 @@ echo "********************************************"
 #sudo find /etc/HelpSystems/GoAnywhere \! -user gamft -exec chown gamft:root {} \;
 #sudo find /opt/HelpSystems/GoAnywhere \! -user gamft -exec chown gamft:root {} \;
 
-rm "/etc/HelpSystems/GoAnywhere/config/database.xml"
-ln -s "/etc/HelpSystems/GoAnywhere/sharedconfig/database.xml" "/etc/HelpSystems/GoAnywhere/config/database.xml" 
-ls -la /etc/HelpSystems/GoAnywhere/config/
+
 
 cd /opt/HelpSystems/GoAnywhere
 
@@ -40,10 +38,8 @@ then
   sed -i 's|"22"|"8022"|g' "${config_folder}"/sftp.xml
   echo "Updating default database location..."
   sed -i 's|/usr/local/HelpSystems/GoAnywhere|/opt/HelpSystems/GoAnywhere|g' "${config_folder}"/database.xml
-  ls -la /etc/HelpSystems/GoAnywhere/config/
   echo Running upgrader...
   java -classpath upgrader/ga_upgrade.jar -javaagent:upgrader/ga_upgrade.jar com.linoma.goanywhere.upgrader.Startup skipFiles
-  ls -la /etc/HelpSystems/GoAnywhere/config/
   if [ $? -eq 0 ]
   then
     mv upgrader/ga_upgrade.jar upgrader/ga_upgrade_complete.jar
@@ -61,13 +57,20 @@ if [ "$MFT_CLUSTER" == "TRUE" ]; then
   sed -i 's|false|true|g' "${config_folder}"/cluster.xml
 fi
 
+# variables.
+shareconfig_folder="/etc/HelpSystems/GoAnywhere/sharedconfig"
+
 # Update the file database.xml with the correct values.
-sed -i "s|sequencePoolMaxIdle\">.*<|sequencePoolMaxIdle\">5<|g" "${config_folder}"/database.xml
-sed -i "s|password\">.*<|password\">$DB_PASSWORD<|g" "${config_folder}"/database.xml
-sed -i "s|username\">.*<|username\">$DB_USERNAME<|g" "${config_folder}"/database.xml
-sed -i "s|driverClassName\">.*<|driverClassName\">$DB_DRIVERCLASSNAME<|g" "${config_folder}"/database.xml
-sed -i "s|url\">.*<|url\">$DB_URL<|g" "${config_folder}"/database.xml
-grep -q 'passwordIsEncrypted' "${config_folder}"/database.xml || sed -i "s|</properties>|<entry key=\"passwordIsEncrypted\">true</entry>\n</properties>|g" "${config_folder}"/database.xml
+sed -i "s|sequencePoolMaxIdle\">.*<|sequencePoolMaxIdle\">5<|g" "${shareconfig_folder}"/database.xml
+sed -i "s|password\">.*<|password\">$DB_PASSWORD<|g" "${shareconfig_folder}"/database.xml
+sed -i "s|username\">.*<|username\">$DB_USERNAME<|g" "${shareconfig_folder}"/database.xml
+sed -i "s|driverClassName\">.*<|driverClassName\">$DB_DRIVERCLASSNAME<|g" "${shareconfig_folder}"/database.xml
+sed -i "s|url\">.*<|url\">$DB_URL<|g" "${shareconfig_folder}"/database.xml
+grep -q 'passwordIsEncrypted' "${shareconfig_folder}"/database.xml || sed -i "s|</properties>|<entry key=\"passwordIsEncrypted\">true</entry>\n</properties>|g" "${shareconfig_folder}"/database.xml
+
+rm "/etc/HelpSystems/GoAnywhere/config/database.xml"
+ln -s "/etc/HelpSystems/GoAnywhere/sharedconfig/database.xml" "/etc/HelpSystems/GoAnywhere/config/database.xml" 
+ls -la /etc/HelpSystems/GoAnywhere/config/
 
 ls -la /etc/HelpSystems/GoAnywhere/config/
 
