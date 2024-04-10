@@ -40,8 +40,10 @@ then
   sed -i 's|"22"|"8022"|g' "${config_folder}"/sftp.xml
   echo "Updating default database location..."
   sed -i 's|/usr/local/HelpSystems/GoAnywhere|/opt/HelpSystems/GoAnywhere|g' "${config_folder}"/database.xml
+  ls -la /etc/HelpSystems/GoAnywhere/config/
   echo Running upgrader...
   java -classpath upgrader/ga_upgrade.jar -javaagent:upgrader/ga_upgrade.jar com.linoma.goanywhere.upgrader.Startup skipFiles
+  ls -la /etc/HelpSystems/GoAnywhere/config/
   if [ $? -eq 0 ]
   then
     mv upgrader/ga_upgrade.jar upgrader/ga_upgrade_complete.jar
