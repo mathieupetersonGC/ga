@@ -1,7 +1,5 @@
 FROM helpsystems/goanywhere-mft:latest
 
-COPY /lib/* /opt/HelpSystems/GoAnywhere/lib/
-
 USER root
 
 COPY /scripts/entrypoint.sh /usr/bin/
