@@ -67,6 +67,8 @@ sed -i "s|driverClassName\">.*<|driverClassName\">$DB_DRIVERCLASSNAME<|g" "${con
 sed -i "s|url\">.*<|url\">$DB_URL<|g" "${config_folder}"/database.xml
 grep -q 'passwordIsEncrypted' "${config_folder}"/database.xml || sed -i "s|</properties>|<entry key=\"passwordIsEncrypted\">true</entry>\n</properties>|g" "${config_folder}"/database.xml
 
+ls -la /etc/HelpSystems/GoAnywhere/config/
+
 JVM='1024'
 if [ -n "$JAVA_MAX_MEMORY" ]; then
   JVM=$JAVA_MAX_MEMORY
