@@ -15,12 +15,13 @@ RUN chmod +x /usr/bin/entrypoint.sh \
 RUN rm -rf /etc/yum.repos.d/linuxrepos.repo
 
 RUN yum update -y && yum -y install procps xz && yum -y clean all && rm -rf /var/cache
-RUN cd /home/azureuser/
-RUN curl -o ./mono-$VERSION.tar.xz https://download.mono-project.com/sources/mono/mono-$VERSION.tar.xz
-RUN tar xvf ./mono-$VERSION.tar.xz
-#RUN cd mono-$VERSION
-#RUN ./configure --prefix=/usr/local
-#RUN make
-#RUN make install
+RUN curl https://download.mono-project.com/sources/mono/mono-$VERSION.tar.xz
+RUN tar xvf mono-$VERSION.tar.xz
+WORKDIR mono-$VERSION
+RUN ./configure --prefix=/usr/local
+RUN make
+RUN make install
+
+WORKDIR /
 
 USER gamft
