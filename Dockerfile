@@ -14,7 +14,7 @@ RUN chmod +x /usr/bin/entrypoint.sh \
 
 RUN rm -rf /etc/yum.repos.d/linuxrepos.repo
 
-RUN yum update -y && yum -y install procps xz gcc gcc-c++ make && yum -y clean all && rm -rf /var/cache
+RUN yum update -y && yum -y install procps xz gcc gcc-c++ make perl-ExtUtils-MakeMaker.noarch && yum -y clean all && rm -rf /var/cache
 RUN dnf -y install cmake
 
 # Installing Mono (dependency for marcEdit).
