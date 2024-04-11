@@ -16,6 +16,7 @@ RUN chmod +x /usr/bin/entrypoint.sh \
 
 RUN rm -rf /etc/yum.repos.d/linuxrepos.repo
 
+# Installing dependencies.
 RUN yum update -y \
   && yum -y install procps xz gcc gcc-c++ make perl-ExtUtils-MakeMaker.noarch unzip \
   && yum -y clean all \
