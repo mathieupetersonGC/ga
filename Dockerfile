@@ -17,7 +17,7 @@ RUN chmod +x /usr/bin/entrypoint.sh \
 RUN rm -rf /etc/yum.repos.d/linuxrepos.repo
 
 RUN yum update -y && yum -y install procps xz gcc gcc-c++ make perl-ExtUtils-MakeMaker.noarch unzip && yum -y clean all && rm -rf /var/cache
-RUN dnf -y install cmake python3 python3-devel
+RUN dnf -y install cmake python
 
 # Installing aws cli.
 RUN curl -o "awscli-bundle.zip" "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip"
