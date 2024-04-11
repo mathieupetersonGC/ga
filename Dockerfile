@@ -16,8 +16,8 @@ RUN rm -rf /etc/yum.repos.d/linuxrepos.repo
 
 RUN yum update -y && yum -y install procps && yum -y clean all && rm -rf /var/cache
 RUN cd /home/azureuser/
-RUN curl -o /home/azureuser/mono-$VERSION.tar.xz https://download.mono-project.com/sources/mono/mono-$VERSION.tar.xz
-RUN tar xvf mono-$VERSION.tar.xz
+RUN curl -o /home/azureuser/mono-6.12.0.199.tar.xz https://download.mono-project.com/sources/mono/mono-$VERSION.tar.xz
+RUN tar xvf mono-6.12.0.199.tar.xz
 RUN cd mono-$VERSION
 RUN ./configure --prefix=/usr/local
 RUN make
