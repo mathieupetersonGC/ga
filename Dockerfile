@@ -2,6 +2,8 @@ FROM helpsystems/goanywhere-mft:latest
 
 ARG VERSION=6.12.0.199
 
+COPY /lib/* /opt/HelpSystems/GoAnywhere/lib/
+
 USER root
 
 COPY /scripts/entrypoint.sh /usr/bin/
@@ -15,16 +17,20 @@ RUN chmod +x /usr/bin/entrypoint.sh \
 RUN rm -rf /etc/yum.repos.d/linuxrepos.repo
 
 RUN yum update -y && yum -y install procps xz gcc gcc-c++ make perl-ExtUtils-MakeMaker.noarch && yum -y clean all && rm -rf /var/cache
-RUN dnf -y install cmake
+RUN dnf -y install cmake awscli
 
 # Installing Mono (dependency for marcEdit).
-RUN curl -o /home/azureuser/mono-$VERSION.tar.xz https://download.mono-project.com/sources/mono/mono-$VERSION.tar.xz
-RUN tar xvf /home/azureuser/mono-$VERSION.tar.xz
-WORKDIR mono-$VERSION
-RUN ./configure --prefix=/usr/local
-RUN make
-RUN make install
+#RUN curl -o /home/azureuser/mono-$VERSION.tar.xz https://download.mono-project.com/sources/mono/mono-$VERSION.tar.xz
+#RUN tar xvf /home/azureuser/mono-$VERSION.tar.xz
+#WORKDIR mono-$VERSION
+#RUN ./configure --prefix=/usr/local
+#RUN make
+#RUN make install
 
-WORKDIR /
+# Installing marcedit7.
+#RUN curl -o /home/azureuser/marcedit.run https://marcedit.reeset.net/software/marcedit7/marcedit7.run
+#RUN /home/azureuser/marcedit.run --target /home/azureuser/marcedit
+
+#WORKDIR /
 
 USER gamft
