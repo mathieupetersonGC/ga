@@ -16,11 +16,11 @@ RUN rm -rf /etc/yum.repos.d/linuxrepos.repo
 
 RUN yum update -y && yum -y install procps && yum -y clean all && rm -rf /var/cache
 
-RUN curl https://download.mono-project.com/sources/mono/mono-$VERSION.tar.xz \
-  && tar -xJvf mono-$VERSION.tar.xz \
-  && cd mono-$VERSION \
-  && ./configure --prefix=/usr/local \
-  && make \
-  && make install
+RUN curl https://download.mono-project.com/sources/mono/mono-$VERSION.tar.xz
+RUN tar -xJvf mono-$VERSION.tar.xz
+RUN cd mono-$VERSION
+RUN ./configure --prefix=/usr/local
+RUN make
+RUN make install
 
 USER gamft
