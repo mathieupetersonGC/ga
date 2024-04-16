@@ -30,9 +30,13 @@ RUN unzip awscliv2.zip
 RUN ./aws/install
 
 # Installing marcedit7.
-RUN curl -o /home/azureuser/marcedit.run https://marcedit.reeset.net/software/marcedit7/marcedit7.run
-RUN chmod u+x /home/azureuser/marcedit.run
-RUN /home/azureuser/marcedit.run --target /home/azureuser/marcedit
-RUN chmod -R 755 /home/azureuser/marcedit
+RUN curl -o /opt/marcedit.run https://marcedit.reeset.net/software/marcedit7/marcedit7.run
+RUN chmod u+x /opt/marcedit.run
+RUN /opt/marcedit.run --target /opt/marcedit
+RUN chmod -R 755 /opt/marcedit
+
+# Cleanup
+RUN rm /opt/marcedit.run \
+  && rm awscliv2.zip
 
 USER gamft
