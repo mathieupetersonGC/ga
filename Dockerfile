@@ -19,10 +19,10 @@ RUN rm -rf /etc/yum.repos.d/linuxrepos.repo
 
 # Installing dependencies.
 RUN yum update -y \
-  && yum -y install procps xz gcc gcc-c++ make perl-ExtUtils-MakeMaker.noarch unzip epel-release \
+  && yum -y install procps unzip epel-release \
   && yum -y clean all \
   && rm -rf /var/cache
-RUN dnf -y install cmake python mono-complete
+RUN dnf -y install mono-complete
 
 # Installing aws cli.
 RUN curl -o "awscliv2.zip" "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip"
@@ -38,8 +38,8 @@ RUN ./aws/install
 #RUN make install
 
 # Installing marcedit7.
-#RUN curl -o /home/azureuser/marcedit.run https://marcedit.reeset.net/software/marcedit7/marcedit7.run
-#RUN /home/azureuser/marcedit.run --target /home/azureuser/marcedit
+RUN curl -o /home/azureuser/marcedit.run https://marcedit.reeset.net/software/marcedit7/marcedit7.run
+RUN /home/azureuser/marcedit.run --target /home/azureuser/marcedit
 
 #WORKDIR /
 
