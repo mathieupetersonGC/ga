@@ -1,7 +1,7 @@
 FROM helpsystems/goanywhere-mft:latest
 
-ARG VERSION=6.12.0.199
-ENV CLASSPATH="/opt/HelpSystems/GoAnywhere/lib/saxon-he-12.4.jar:/opt/HelpSystems/GoAnywhere/lib/xmlresolver-5.2.2.jar"
+#ENV CLASSPATH="/opt/HelpSystems/GoAnywhere/lib/saxon-he-12.4.jar:/opt/HelpSystems/GoAnywhere/lib/xmlresolver-5.2.2.jar"
+ENV CLASSPATH="/opt/HelpSystems/GoAnywhere/lib/saxon*.jar:/opt/HelpSystems/GoAnywhere/lib/xmlresolver*.jar"
 
 COPY /lib/* /opt/HelpSystems/GoAnywhere/lib/
 
