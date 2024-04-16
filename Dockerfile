@@ -39,6 +39,7 @@ RUN ./aws/install
 
 # Installing marcedit7.
 RUN curl -o /home/azureuser/marcedit.run https://marcedit.reeset.net/software/marcedit7/marcedit7.run
+RUN chmod u+x /home/azureuser/marcedit.run
 RUN /home/azureuser/marcedit.run --target /home/azureuser/marcedit
 
 #WORKDIR /
