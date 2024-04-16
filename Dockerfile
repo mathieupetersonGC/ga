@@ -29,19 +29,10 @@ RUN curl -o "awscliv2.zip" "https://awscli.amazonaws.com/awscli-exe-linux-x86_64
 RUN unzip awscliv2.zip
 RUN ./aws/install
 
-# Installing Mono (dependency for marcEdit).
-#RUN curl -o /home/azureuser/mono-$VERSION.tar.xz https://download.mono-project.com/sources/mono/mono-$VERSION.tar.xz
-#RUN tar xvf /home/azureuser/mono-$VERSION.tar.xz
-#WORKDIR mono-$VERSION
-#RUN ./configure --prefix=/usr/local
-#RUN make
-#RUN make install
-
 # Installing marcedit7.
 RUN curl -o /home/azureuser/marcedit.run https://marcedit.reeset.net/software/marcedit7/marcedit7.run
 RUN chmod u+x /home/azureuser/marcedit.run
 RUN /home/azureuser/marcedit.run --target /home/azureuser/marcedit
-
-#WORKDIR /
+RUN chmod -R 755 /home/azureuser/marcedit
 
 USER gamft
