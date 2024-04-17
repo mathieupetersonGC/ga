@@ -3,11 +3,11 @@ FROM helpsystems/goanywhere-mft:latest
 #ENV CLASSPATH="/opt/saxon/lib/saxon-he-12.4.jar:/opt/saxon/lib/xmlresolver-5.2.2.jar"
 
 COPY /lib/* /opt/saxon/lib/
-#RUN curl -o "saxonhe12.zip" "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip"
 
 USER root
 
 COPY /scripts/entrypoint.sh /usr/bin/
+COPY /scripts/setenv.sh /opt/HelpSystems/GoAnywhere/tomcat/bin/
 
 COPY /configs/* /home/azureuser/volumes/sharedconfig/ 
 

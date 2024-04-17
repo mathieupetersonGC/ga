@@ -77,7 +77,6 @@ fi
 
 JAVA_OPTS="-Xmx"$JVM"m -XX:MaxMetaspaceSize=1024m -Djava.awt.headless=true"
 export JAVA_OPTS
-export CLASSPATH="/opt/saxon/lib/saxon-he-12.4.jar:/opt/saxon/lib/xmlresolver-5.2.2.jar"
 
 # Use the bundled JRE if one has been bundled.
 if [ -d "$PRGDIR/jre6" ]
