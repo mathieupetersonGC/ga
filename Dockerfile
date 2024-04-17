@@ -1,9 +1,9 @@
 FROM helpsystems/goanywhere-mft:latest
 
-#ENV CLASSPATH="/opt/HelpSystems/GoAnywhere/lib/saxon-he-12.4.jar:/opt/HelpSystems/GoAnywhere/lib/xmlresolver-5.2.2.jar"
-ENV CLASSPATH="/opt/HelpSystems/GoAnywhere/lib/saxon*.jar:/opt/HelpSystems/GoAnywhere/lib/xmlresolver*.jar"
+#ENV CLASSPATH="/opt/saxon/lib/saxon-he-12.4.jar:/opt/saxon/lib/xmlresolver-5.2.2.jar"
 
-COPY /lib/* /opt/HelpSystems/GoAnywhere/lib/
+COPY /lib/* /opt/saxon/lib/
+#RUN curl -o "saxonhe12.zip" "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip"
 
 USER root
 
@@ -12,8 +12,6 @@ COPY /scripts/entrypoint.sh /usr/bin/
 COPY /configs/* /home/azureuser/volumes/sharedconfig/ 
 
 RUN chmod +x /usr/bin/entrypoint.sh
-#  && chown -R gamft:gamft /etc/HelpSystems \
-#  && chown -R gamft:gamft /opt/HelpSystems
 
 RUN rm -rf /etc/yum.repos.d/linuxrepos.repo
 
