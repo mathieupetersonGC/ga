@@ -49,9 +49,9 @@ fi
 shareconfig_folder="/etc/HelpSystems/GoAnywhere/sharedconfig"
 
 # Update the file database.xml with the correct values.
-sed -i "s|password\">.*<|password\">$DB_PASSWORD<|g" "${shareconfig_folder}"/database.xml
-sed -i "s|username\">.*<|username\">$DB_USERNAME<|g" "${shareconfig_folder}"/database.xml
-sed -i "s|url\">.*<|url\">$DB_URL<|g" "${shareconfig_folder}"/database.xml
+#sed -i "s|password\">.*<|password\">$DB_PASSWORD<|g" "${shareconfig_folder}"/database.xml
+#sed -i "s|username\">.*<|username\">$DB_USERNAME<|g" "${shareconfig_folder}"/database.xml
+#sed -i "s|url\">.*<|url\">$DB_URL<|g" "${shareconfig_folder}"/database.xml
 
 cd "${config_folder}"
 shopt -s extglob

@@ -9,11 +9,11 @@ docker run --name ga --detach \
 --publish 8021:8021 \
 --publish 8022:8022 \
 --publish 32001-32300:32001-32300 \
---volume /home/ec2-user/efs/userdatadir:/opt/HelpSystems/GoAnywhere/userdata/ \
---volume /home/ec2-user/efs/upgrader:/opt/HelpSystems/GoAnywhere/upgrader/ \
---volume /home/ec2-user/efs/configdir:/etc/HelpSystems/GoAnywhere/config/ \
---volume /home/ec2-user/efs/tomcatserver:/etc/HelpSystems/GoAnywhere/tomcat/ \
---volume /home/ec2-user/efs/tomcat:/opt/HelpSystems/GoAnywhere/tomcat/logs/ \
---volume /home/ec2-user/efs/ghttpsroot:/opt/HelpSystems/GoAnywhere/ghttpsroot/custom/ \
---volume /home/ec2-user/efs/sharedconfig:/etc/HelpSystems/GoAnywhere/sharedconfig/ \
+--volume /home/volumes/userdatadir:/opt/HelpSystems/GoAnywhere/userdata/ \
+--volume /home/volumes/upgrader:/opt/HelpSystems/GoAnywhere/upgrader/ \
+--volume /home/volumes/configdir:/etc/HelpSystems/GoAnywhere/config/ \
+--volume /home/volumes/tomcatserver:/etc/HelpSystems/GoAnywhere/tomcat/ \
+--volume /home/volumes/tomcat:/opt/HelpSystems/GoAnywhere/tomcat/logs/ \
+--volume /home/volumes/ghttpsroot:/opt/HelpSystems/GoAnywhere/ghttpsroot/custom/ \
+--volume /home/volumes/sharedconfig:/etc/HelpSystems/GoAnywhere/sharedconfig/ \
 helpsystems/goanywhere-mft:latest
