@@ -68,4 +68,8 @@ echo "********************************************"
 ls -la "${config_folder}"
 
 
+echo "********************************************"
+echo cat ${config_folder}/database.xml...
+echo "********************************************"
+cat ${config_folder}/database.xml
 
