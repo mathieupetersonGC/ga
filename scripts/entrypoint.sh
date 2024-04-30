@@ -22,6 +22,7 @@ cd "${PRGDIR}"
 
 # variables.
 config_folder="/etc/HelpSystems/GoAnywhere/config"
+shareconfig_folder="/etc/HelpSystems/GoAnywhere/sharedconfig"
 
 echo "********************************************"
 echo Listing /home/volumes/sharedconfig/...
