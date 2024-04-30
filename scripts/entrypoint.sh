@@ -38,7 +38,7 @@ echo "********************************************"
 echo Listing /home/volumes/sharedconfig/...
 echo "********************************************"
 ls -la /home/volumes/sharedconfig/
-cp /home/volumes/sharedconfig/* /etc/HelpSystems/GoAnywhere/sharedconfig/
+sudo cp /home/volumes/sharedconfig/* /etc/HelpSystems/GoAnywhere/sharedconfig/
 
 
 
