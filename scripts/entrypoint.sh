@@ -23,18 +23,6 @@ cd "${PRGDIR}"
 # variables.
 config_folder="/etc/HelpSystems/GoAnywhere/config"
 
-# Update ports and db location in different files.
-if [ -f "upgrader/ga_upgrade.jar" ]
-then
-  echo Running upgrader...
-  java -classpath upgrader/ga_upgrade.jar -javaagent:upgrader/ga_upgrade.jar com.linoma.goanywhere.upgrader.Startup skipFiles
-  if [ $? -eq 0 ]
-  then
-    mv upgrader/ga_upgrade.jar upgrader/ga_upgrade_complete.jar
-  fi
-  else
-  echo No upgrade file found, skipping upgrade command
-fi
 
 echo "********************************************"
 echo Listing mount...
