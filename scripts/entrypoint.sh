@@ -55,12 +55,17 @@ echo "********************************************"
 echo Listing "/opt/HelpSystems/GoAnywhere/"...
 echo "********************************************"
 
-ls -la /opt/HelpSystems/GoAnywhere//
+ls -la /opt/HelpSystems/GoAnywhere/
 
 echo "********************************************"
-echo Listing "/etc/HelpSystems/GoAnywhere/"...
+echo Listing "/etc/HelpSystems/GoAnywhere/tomcat/conf"...
 echo "********************************************"
 
-ls -la /etc/HelpSystems/GoAnywhere/
+ls -la /etc/HelpSystems/GoAnywhere/tomcat/conf
 
+echo "********************************************"
+echo Listing "/etc/HelpSystems/GoAnywhere/sharedconfig/"...
+echo "********************************************"
+
+ls -la /etc/HelpSystems/GoAnywhere/sharedconfig/
 
