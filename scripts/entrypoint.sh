@@ -24,10 +24,6 @@ cd "${PRGDIR}"
 config_folder="/etc/HelpSystems/GoAnywhere/config"
 shareconfig_folder="/etc/HelpSystems/GoAnywhere/sharedconfig"
 
-echo "********************************************"
-echo Listing /home/volumes/sharedconfig/...
-echo "********************************************"
-ls -la /home/volumes/sharedconfig/
 sudo cp /home/volumes/sharedconfig/* /etc/HelpSystems/GoAnywhere/sharedconfig/
 
 cd "${config_folder}"
@@ -43,16 +39,24 @@ ln -s "${shareconfig_folder}"/pesit.xml "${config_folder}"/pesit.xml
 ln -s "${shareconfig_folder}"/security.xml "${config_folder}"/security.xml
 ln -s "${shareconfig_folder}"/sftp.xml "${config_folder}"/sftp.xml
 
-echo "********************************************"
-echo Listing "/etc/HelpSystems/GoAnywhere/config"...
-echo "********************************************"
+JVM='1024'
+if [ -n "$JAVA_MAX_MEMORY" ]; then
+  JVM=$JAVA_MAX_MEMORY
+fi
 
-ls -la /etc/HelpSystems/GoAnywhere/config/
+JAVA_OPTS="-Xmx"$JVM"m -XX:MaxMetaspaceSize=1024m -Djava.awt.headless=true"
+export JAVA_OPTS
 
+# Use the bundled JRE if one has been bundled.
+if [ -d "$PRGDIR/jre6" ]
+then
+  export JAVA_HOME="$PRGDIR/jre6"
+elif [ -d "$PRGDIR/jre" ]
+then
+  export JAVA_HOME="$PRGDIR/jre"
+fi
 
-echo "********************************************"
-echo Listing "/etc/HelpSystems/GoAnywhere/sharedconfig/"...
-echo "********************************************"
+EXECUTABLE=tomcat/bin/goanywhere_catalina.sh
 
-ls -la /etc/HelpSystems/GoAnywhere/sharedconfig/
+exec "$PRGDIR"/"$EXECUTABLE" run "$@"
 
