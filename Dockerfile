@@ -16,4 +16,4 @@ RUN yum update -y \
   && yum -y clean all \
   && rm -rf /var/cache
 
-USER gamft
+#USER gamft
