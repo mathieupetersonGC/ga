@@ -30,8 +30,6 @@ ls -la /home/volumes/sharedconfig/
 sudo cp /home/volumes/sharedconfig/* /etc/HelpSystems/GoAnywhere/sharedconfig/
 
 cd "${config_folder}"
-shopt -s extglob
-rm -- !("cluster.xml")
 ln -s "${shareconfig_folder}"/database.xml "${config_folder}"/database.xml
 ln -s "${shareconfig_folder}"/agent.xml "${config_folder}"/agent.xml
 ln -s "${shareconfig_folder}"/ftp.xml "${config_folder}"/ftp.xml
