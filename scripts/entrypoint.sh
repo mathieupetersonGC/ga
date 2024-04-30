@@ -52,15 +52,15 @@ echo "********************************************"
 ls -la /etc/HelpSystems/GoAnywhere/config/
 
 echo "********************************************"
-echo Listing "/opt/HelpSystems/GoAnywhere/userdata/"...
+echo Listing "/opt/HelpSystems/GoAnywhere/"...
 echo "********************************************"
 
-ls -la /opt/HelpSystems/GoAnywhere/userdata/
+ls -la /opt/HelpSystems/GoAnywhere//
 
 echo "********************************************"
-echo Listing "/etc/HelpSystems/GoAnywhere/tomcat/"...
+echo Listing "/etc/HelpSystems/GoAnywhere/"...
 echo "********************************************"
 
-ls -la /etc/HelpSystems/GoAnywhere/tomcat/
+ls -la /etc/HelpSystems/GoAnywhere/
 
 
