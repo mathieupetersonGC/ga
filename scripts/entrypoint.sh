@@ -36,22 +36,23 @@ then
   echo No upgrade file found, skipping upgrade command
 fi
 
-# Update the file: cluster.xml with the host values.
-if [ "$MFT_CLUSTER" == "TRUE" ]; then
-  host=`hostname -i`
-  sed -i "s|systemName\">.*<|systemName\">$SYSTEM_NAME<|g" "${config_folder}"/cluster.xml
-  sed -i "s|clusterBindAddress\">.*<|clusterBindAddress\">$host<|g" "${config_folder}"/cluster.xml
-  sed -i 's|clusterBindPort"><|clusterBindPort">8006<|g' "${config_folder}"/cluster.xml
-  sed -i 's|false|true|g' "${config_folder}"/cluster.xml
-fi
+echo "********************************************"
+echo Listing mount...
+echo "********************************************"
+df -h 
+
+echo ""
+echo ""
+echo ""
+
+echo "********************************************"
+echo Listing /home/volumes/sharedconfig/...
+echo "********************************************"
+ls -la /home/volumes/sharedconfig/
 
 # variables.
 shareconfig_folder="/etc/HelpSystems/GoAnywhere/sharedconfig"
 
-# Update the file database.xml with the correct values.
-#sed -i "s|password\">.*<|password\">$DB_PASSWORD<|g" "${shareconfig_folder}"/database.xml
-#sed -i "s|username\">.*<|username\">$DB_USERNAME<|g" "${shareconfig_folder}"/database.xml
-#sed -i "s|url\">.*<|url\">$DB_URL<|g" "${shareconfig_folder}"/database.xml
 
 cd "${config_folder}"
 shopt -s extglob
@@ -68,25 +69,15 @@ ln -s "${shareconfig_folder}"/pesit.xml "${config_folder}"/pesit.xml
 ln -s "${shareconfig_folder}"/security.xml "${config_folder}"/security.xml
 ln -s "${shareconfig_folder}"/sftp.xml "${config_folder}"/sftp.xml
 
+echo ""
+echo ""
+echo ""
+
+echo "********************************************"
+echo Listing "${config_folder}"...
+echo "********************************************"
+
 ls -la "${config_folder}"
 
-JVM='1024'
-if [ -n "$JAVA_MAX_MEMORY" ]; then
-  JVM=$JAVA_MAX_MEMORY
-fi
 
-JAVA_OPTS="-Xmx"$JVM"m -XX:MaxMetaspaceSize=1024m -Djava.awt.headless=true"
-export JAVA_OPTS
 
-# Use the bundled JRE if one has been bundled.
-if [ -d "$PRGDIR/jre6" ]
-then
-  export JAVA_HOME="$PRGDIR/jre6"
-elif [ -d "$PRGDIR/jre" ]
-then
-  export JAVA_HOME="$PRGDIR/jre"
-fi
-
-EXECUTABLE=tomcat/bin/goanywhere_catalina.sh
-
-exec "$PRGDIR"/"$EXECUTABLE" run "$@"
