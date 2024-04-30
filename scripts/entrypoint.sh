@@ -22,7 +22,10 @@ cd "${PRGDIR}"
 
 # variables.
 config_folder="/etc/HelpSystems/GoAnywhere/config"
-
+echo "********************************************"
+echo whoami...
+echo "********************************************"
+whoami
 
 echo "********************************************"
 echo Listing mount...
