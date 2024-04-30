@@ -29,9 +29,10 @@ echo Listing mount...
 echo "********************************************"
 df -h 
 
-echo ""
-echo ""
-echo ""
+echo "********************************************"
+echo mount...
+echo "********************************************"
+mount
 
 echo "********************************************"
 echo Listing /home/volumes/sharedconfig/...
@@ -73,7 +74,3 @@ echo cat ${config_folder}/database.xml...
 echo "********************************************"
 cat ${config_folder}/database.xml
 
-echo "********************************************"
-echo mount...
-echo "********************************************"
-mount
