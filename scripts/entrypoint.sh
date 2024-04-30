@@ -73,3 +73,7 @@ echo cat ${config_folder}/database.xml...
 echo "********************************************"
 cat ${config_folder}/database.xml
 
+echo "********************************************"
+echo mount...
+echo "********************************************"
+mount
