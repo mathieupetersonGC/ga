@@ -28,6 +28,7 @@ ls -la /tmp
 cp /tmp/sharedconfig/*.xml "${shareconfig_folder}"
 ls -la /tmp/sharedconfig/
 cp -R /tmp/sharedconfig/conf/ "${tomcat_folder}"
+cp /tmp/sharedconfig/cluster.xml "${config_folder}"
 
 # Update ports and db location in different files.
 if [ -f "upgrader/ga_upgrade.jar" ]
@@ -59,9 +60,9 @@ sed -i "s|url\">.*<|url\">$DB_URL<|g" "${shareconfig_folder}"/database.xml
 cd "${config_folder}"
 #shopt -s extglob
 #rm -- !("cluster.xml")
-cp cluster.xml /tmp/cluster.xml
+#cp cluster.xml /tmp/cluster.xml
 rm -rf *
-cp /tmp/cluster.xml .
+#cp /tmp/cluster.xml .
 ln -s "${shareconfig_folder}"/database.xml "${config_folder}"/database.xml
 ln -s "${shareconfig_folder}"/agent.xml "${config_folder}"/agent.xml
 ln -s "${shareconfig_folder}"/ftp.xml "${config_folder}"/ftp.xml
