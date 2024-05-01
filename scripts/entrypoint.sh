@@ -26,6 +26,7 @@ shareconfig_folder="/etc/HelpSystems/GoAnywhere/sharedconfig"
 tomcat_folder="/etc/HelpSystems/GoAnywhere/tomcat"
 ls -la /tmp
 cp /tmp/sharedconfig/*.xml "${shareconfig_folder}"
+ls -la /tmp/sharedconfig/
 cp -R /tmp/sharedconfig/conf/ "${tomcat_folder}"
 
 # Update ports and db location in different files.
