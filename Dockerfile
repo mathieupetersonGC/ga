@@ -8,7 +8,7 @@ COPY /scripts/entrypoint.sh /usr/bin/
 #COPY /scripts/setenv.sh /opt/HelpSystems/GoAnywhere/tomcat/bin/
 
 COPY /configs/* /tmp/sharedconfig/ 
-RUN chmod -R 666 /tmp/sharedconfig/ 
+RUN chmod -R 777 /tmp/sharedconfig/ 
 
 RUN chmod +x /usr/bin/entrypoint.sh
 
