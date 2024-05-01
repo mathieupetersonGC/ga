@@ -60,7 +60,7 @@ cd "${config_folder}"
 #shopt -s extglob
 #rm -- !("cluster.xml")
 cp cluster.xml /tmp/cluster.xml
-rm -rf .
+rm -rf *
 cp /tmp/cluster.xml .
 ln -s "${shareconfig_folder}"/database.xml "${config_folder}"/database.xml
 ln -s "${shareconfig_folder}"/agent.xml "${config_folder}"/agent.xml
