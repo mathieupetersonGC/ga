@@ -1,0 +1,23 @@
+<Server port="8006" shutdown="SHUTDOWN">
+    <Service name="admin">
+        <Connector name="default" port="8000" />
+
+        <Connector name="secured" port="8001" protocol="HTTP/1.1"
+            SSLEnabled="true" truststoreAlgorithm="X509" enableLookups="false" disableUploadTimeout="true"
+            scheme="https" secure="true" clientAuth="false" sslProtocol="TLS"
+            keystoreFile="${admin.keystore.file.secured}"
+            keystorePass="${admin.keystore.password.secured}"
+            keystoreType="${admin.keystore.type.secured}" keyAlias="${admin.keystore.alias.secured}"
+            truststoreFile="${admin.truststore.file.secured}"
+            truststorePass="${admin.truststore.password.secured}"
+            truststoreType="${admin.truststore.type.secured}" keyLocation="KeyVault" keyName="goanywhere-sample" />
+
+        <Engine name="admin" defaultHost="localhost">
+            <Host name="localhost" appBase="webapps" errorReportValveClass="com.linoma.dpa.j2ee.CustomErrorReportValve">
+                <Context path="/goanywhere" docBase="/opt/HelpSystems/GoAnywhere/adminroot" reloadable="false">
+                    <Loader delegate="true" />
+                </Context>
+            </Host>
+        </Engine>
+    </Service>
+</Server>

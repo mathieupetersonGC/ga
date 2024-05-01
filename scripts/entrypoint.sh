@@ -22,6 +22,9 @@ cd "${PRGDIR}"
 
 # variables.
 config_folder="/etc/HelpSystems/GoAnywhere/config"
+shareconfig_folder="/etc/HelpSystems/GoAnywhere/sharedconfig"
+
+cp -p /home/volumes/sharedconfig/* "${shareconfig_folder}"
 
 # Update ports and db location in different files.
 if [ -f "upgrader/ga_upgrade.jar" ]
@@ -39,14 +42,11 @@ fi
 # Update the file: cluster.xml with the host values.
 if [ "$MFT_CLUSTER" == "TRUE" ]; then
   host=`hostname -i`
-  sed -i "s|systemName\">.*<|systemName\">$SYSTEM_NAME<|g" "${config_folder}"/cluster.xml
+  sed -i "s|systemName\">.*<|systemName\">MFT-$host<|g" "${config_folder}"/cluster.xml
   sed -i "s|clusterBindAddress\">.*<|clusterBindAddress\">$host<|g" "${config_folder}"/cluster.xml
-  sed -i 's|clusterBindPort"><|clusterBindPort">8006<|g' "${config_folder}"/cluster.xml
+  sed -i 's|clusterBindPort">.*<|clusterBindPort">8006<|g' "${config_folder}"/cluster.xml
   sed -i 's|false|true|g' "${config_folder}"/cluster.xml
 fi
-
-# variables.
-shareconfig_folder="/etc/HelpSystems/GoAnywhere/sharedconfig"
 
 # Update the file database.xml with the correct values.
 sed -i "s|password\">.*<|password\">$DB_PASSWORD<|g" "${shareconfig_folder}"/database.xml
@@ -67,8 +67,6 @@ ln -s "${shareconfig_folder}"/log4j2.xml "${config_folder}"/log4j2.xml
 ln -s "${shareconfig_folder}"/pesit.xml "${config_folder}"/pesit.xml
 ln -s "${shareconfig_folder}"/security.xml "${config_folder}"/security.xml
 ln -s "${shareconfig_folder}"/sftp.xml "${config_folder}"/sftp.xml
-
-ls -la "${config_folder}"
 
 JVM='1024'
 if [ -n "$JAVA_MAX_MEMORY" ]; then
