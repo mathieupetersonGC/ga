@@ -25,8 +25,8 @@ config_folder="/etc/HelpSystems/GoAnywhere/config"
 shareconfig_folder="/etc/HelpSystems/GoAnywhere/sharedconfig"
 tomcat_folder="/etc/HelpSystems/GoAnywhere/tomcat"
 
-cp -p /home/volumes/sharedconfig/* "${shareconfig_folder}"
-cp -pR /home/volumes/sharedconfig/conf/ "${tomcat_folder}"
+cp -p /tmp/sharedconfig/*.xml "${shareconfig_folder}"
+cp -pR /tmp/sharedconfig/conf/ "${tomcat_folder}"
 
 # Update ports and db location in different files.
 if [ -f "upgrader/ga_upgrade.jar" ]
