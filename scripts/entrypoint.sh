@@ -57,8 +57,14 @@ sed -i "s|username\">.*<|username\">$DB_USERNAME<|g" "${shareconfig_folder}"/dat
 sed -i "s|url\">.*<|url\">$DB_URL<|g" "${shareconfig_folder}"/database.xml
 
 cd "${config_folder}"
-shopt -s extglob
-rm -- !("cluster.xml")
+#shopt -s extglob
+#rm -- !("cluster.xml")
+if [ -f "cluster.xml" ]; then
+  cp cluster.xml /tmp/cluster.xml
+  rm -rf .
+  cp /tmp/cluster.xml .
+fi
+
 ln -s "${shareconfig_folder}"/database.xml "${config_folder}"/database.xml
 ln -s "${shareconfig_folder}"/agent.xml "${config_folder}"/agent.xml
 ln -s "${shareconfig_folder}"/ftp.xml "${config_folder}"/ftp.xml
