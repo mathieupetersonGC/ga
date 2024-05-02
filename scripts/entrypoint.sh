@@ -49,7 +49,7 @@ if [ "$MFT_CLUSTER" == "TRUE" ]; then
   echo "CLUTER PORT: " $CLUSTER_PORT
   sed -i "s|systemName\">.*<|systemName\">$SYSTEM_NAME<|g" "${config_folder}"/cluster.xml
   sed -i "s|clusterBindAddress\">.*<|clusterBindAddress\">$host<|g" "${config_folder}"/cluster.xml
-  sed -i 's|clusterBindPort">.*<|clusterBindPort">$CLUSTER_PORT<|g' "${config_folder}"/cluster.xml
+  sed -i "s|clusterBindPort\">.*<|clusterBindPort\">$CLUSTER_PORT<|g" "${config_folder}"/cluster.xml
   sed -i 's|false|true|g' "${config_folder}"/cluster.xml
   echo "cat config: "
   cat "${config_folder}"/cluster.xml
