@@ -60,9 +60,9 @@ sed -i "s|url\">.*<|url\">$DB_URL<|g" "${shareconfig_folder}"/database.xml
 cd "${config_folder}"
 #shopt -s extglob
 #rm -- !("cluster.xml")
-#cp cluster.xml /tmp/cluster.xml
+cp cluster.xml /tmp/cluster.xml
 rm -rf *
-#cp /tmp/cluster.xml .
+cp /tmp/cluster.xml .
 ln -s "${shareconfig_folder}"/database.xml "${config_folder}"/database.xml
 ln -s "${shareconfig_folder}"/agent.xml "${config_folder}"/agent.xml
 ln -s "${shareconfig_folder}"/ftp.xml "${config_folder}"/ftp.xml
