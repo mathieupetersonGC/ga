@@ -46,9 +46,9 @@ fi
 # Update the file: cluster.xml with the host values.
 if [ "$MFT_CLUSTER" == "TRUE" ]; then
   host=`hostname -i`
-  sed -i "s|systemName\">.*<|systemName\">MFT-$host<|g" "${config_folder}"/cluster.xml
+  sed -i "s|systemName\">.*<|systemName\">$SYSTEM_NAME<|g" "${config_folder}"/cluster.xml
   sed -i "s|clusterBindAddress\">.*<|clusterBindAddress\">$host<|g" "${config_folder}"/cluster.xml
-  sed -i 's|clusterBindPort">.*<|clusterBindPort">8006<|g' "${config_folder}"/cluster.xml
+  sed -i 's|clusterBindPort">.*<|clusterBindPort">$CLUSTER_PORT<|g' "${config_folder}"/cluster.xml
   sed -i 's|false|true|g' "${config_folder}"/cluster.xml
 fi
 
