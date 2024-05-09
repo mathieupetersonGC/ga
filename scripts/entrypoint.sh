@@ -16,43 +16,41 @@ echo "********************************************"
 echo "********************************************"
 echo "********************************************"
 
-PRGDIR="/opt/HelpSystems/GoAnywhere"
-
-cd "${PRGDIR}"
-
-# variables.
+# Variables.
 config_folder="/etc/HelpSystems/GoAnywhere/config"
+program_folder="/opt/HelpSystems/GoAnywhere"
 shareconfig_folder="/etc/HelpSystems/GoAnywhere/sharedconfig"
 tomcat_folder="/etc/HelpSystems/GoAnywhere/tomcat"
-ls -la /tmp
+
+cd "${program_folder}"
+
+# Copy temporary files to their default location.
 cp /tmp/sharedconfig/*.xml "${shareconfig_folder}"
-ls -la /tmp/sharedconfig/
 cp -R /tmp/sharedconfig/conf/ "${tomcat_folder}"
 cp /tmp/sharedconfig/cluster.xml "${config_folder}"
 
-# Update ports and db location in different files.
+# Update login from GoAnywhere.
+# Update will always run if the file ga_upgrade.jar is present.
 if [ -f "upgrader/ga_upgrade.jar" ]
 then
-  echo Running upgrader...
+  echo "Running upgrader..."
   java -classpath upgrader/ga_upgrade.jar -javaagent:upgrader/ga_upgrade.jar com.linoma.goanywhere.upgrader.Startup skipFiles
   if [ $? -eq 0 ]
   then
     mv upgrader/ga_upgrade.jar upgrader/ga_upgrade_complete.jar
   fi
   else
-  echo No upgrade file found, skipping upgrade command
+  echo "No upgrade file found, skipping upgrade command"
 fi
 
-# Update the file: cluster.xml with the host values.
+# Update the file cluster.xml with the host values.
 if [ "$MFT_CLUSTER" == "TRUE" ]; then
   host=`hostname -i`
-  echo "CLUTER PORT: " $CLUSTER_PORT
+  echo "CLUTER PORT: $CLUSTER_PORT"
   sed -i "s|systemName\">.*<|systemName\">$SYSTEM_NAME<|g" "${config_folder}"/cluster.xml
   sed -i "s|clusterBindAddress\">.*<|clusterBindAddress\">$host<|g" "${config_folder}"/cluster.xml
   sed -i "s|clusterBindPort\">.*<|clusterBindPort\">$CLUSTER_PORT<|g" "${config_folder}"/cluster.xml
-  sed -i 's|false|true|g' "${config_folder}"/cluster.xml
-  echo "cat config: "
-  cat "${config_folder}"/cluster.xml
+  sed -i "s|false|true|g" "${config_folder}"/cluster.xml
 fi
 
 # Update the file database.xml with the correct values.
@@ -60,9 +58,8 @@ sed -i "s|password\">.*<|password\">$DB_PASSWORD<|g" "${shareconfig_folder}"/dat
 sed -i "s|username\">.*<|username\">$DB_USERNAME<|g" "${shareconfig_folder}"/database.xml
 sed -i "s|url\">.*<|url\">$DB_URL<|g" "${shareconfig_folder}"/database.xml
 
+# Creating symbolic link for application configuration files.
 cd "${config_folder}"
-#shopt -s extglob
-#rm -- !("cluster.xml")
 cp cluster.xml /tmp/cluster.xml
 rm -rf *
 cp /tmp/cluster.xml .
@@ -87,14 +84,14 @@ JAVA_OPTS="-Xmx"$JVM"m -XX:MaxMetaspaceSize=1024m -Djava.awt.headless=true"
 export JAVA_OPTS
 
 # Use the bundled JRE if one has been bundled.
-if [ -d "$PRGDIR/jre6" ]
+if [ -d "$program_folder/jre6" ]
 then
-  export JAVA_HOME="$PRGDIR/jre6"
-elif [ -d "$PRGDIR/jre" ]
+  export JAVA_HOME="$program_folder/jre6"
+elif [ -d "$program_folder/jre" ]
 then
-  export JAVA_HOME="$PRGDIR/jre"
+  export JAVA_HOME="$program_folder/jre"
 fi
 
 EXECUTABLE=tomcat/bin/goanywhere_catalina.sh
 
-exec "$PRGDIR"/"$EXECUTABLE" run "$@"
+exec "$program_folder"/"$EXECUTABLE" run "$@"

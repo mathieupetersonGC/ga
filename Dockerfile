@@ -1,5 +1,6 @@
 FROM helpsystems/goanywhere-mft:latest
 
+# Copy saxon files and dependencies.
 #COPY /lib/* /opt/saxon/lib/
 
 USER root
@@ -7,6 +8,7 @@ USER root
 COPY /scripts/entrypoint.sh /usr/bin/
 #COPY /scripts/setenv.sh /opt/HelpSystems/GoAnywhere/tomcat/bin/
 
+# Copy default xml configs.
 COPY /configs/ /tmp/sharedconfig/ 
 RUN chmod -R 777 /tmp/sharedconfig/ 
 
@@ -32,7 +34,7 @@ RUN yum update -y \
 #RUN /opt/marcedit.run --target /opt/marcedit
 #RUN chmod -R 755 /opt/marcedit
 
-# Cleanup
+# Cleanup.
 #RUN rm /opt/marcedit.run \
 #  && rm awscliv2.zip
 
